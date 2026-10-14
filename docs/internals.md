@@ -1,5 +1,7 @@
 # 实现说明
 
+**简体中文** · [English](en/internals.md)
+
 改代码或者查问题时看。只是部署使用的话，看 README 就够了。
 
 ## 目录
@@ -11,6 +13,7 @@ caddy/          Caddyfile
 flexisip/       Flexisip 镜像（源码编译 + 补丁）、配置模板、启动脚本
 dns/            可选的局域网 DNS（dnsmasq）
 host/           需要装到宿主机上的 udev 规则和 NetworkManager 配置
+install.sh      一键安装脚本：提问、生成 .env、准备模块、构建启动（--dry-run 只生成配置）
 ```
 
 配置里的 `${VAR}` 都在容器启动时从 `.env` 填入：
