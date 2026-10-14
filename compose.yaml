@@ -1,0 +1,127 @@
+# SMS + voice gateway for a mainland China SIM in a Quectel EC20/EC25 module.
+# Everything site-specific (domains, LAN address, secrets) lives in .env;
+# copy .env.example and see README.md.
+services:
+  asterisk:
+    build: ./asterisk
+    image: sms-gateway-asterisk:local
+    network_mode: host
+    restart: unless-stopped
+    environment:
+      AMI_SECRET: ${AMI_SECRET:?set AMI_SECRET in .env}
+      SIP_PASSWORD: ${SIP_PASSWORD:?set SIP_PASSWORD in .env}
+      INTERNAL_KEY: ${INTERNAL_KEY:?set INTERNAL_KEY in .env}
+      WEB_SIP_PASSWORD: ${WEB_SIP_PASSWORD:?set WEB_SIP_PASSWORD in .env}
+      SIP_DOMAIN: ${SIP_DOMAIN:?set SIP_DOMAIN in .env}
+      LAN_IP: ${LAN_IP:?set LAN_IP in .env}
+      PBX_TOKEN: ${PBX_TOKEN:?set PBX_TOKEN in .env}
+      TZ: ${TZ:-Asia/Tokyo}
+    volumes:
+      # /dev is mounted (not --device) so a modem replug, which re-creates
+      # /dev/ttyUSBn and the ALSA nodes, needs no container re-create; the
+      # cgroup rules still only allow USB serial (188) and ALSA (116).
+      - /dev:/dev
+      - ./data/asterisk:/data
+    device_cgroup_rules:
+      - "c 188:* rmw"
+      - "c 116:* rmw"
+    logging: {driver: json-file, options: {max-size: "10m", max-file: "3"}}
+
+  app:
+    build: ./app
+    image: sms-gateway-app:local
+    network_mode: host
+    restart: unless-stopped
+    depends_on: [asterisk]
+    environment:
+      AMI_SECRET: ${AMI_SECRET:?set AMI_SECRET in .env}
+      SESSION_SECRET: ${SESSION_SECRET:?set SESSION_SECRET in .env}
+      FLEXIAPI_ROUTER_KEY: ${FLEXIAPI_ROUTER_KEY:?set FLEXIAPI_ROUTER_KEY in .env}
+      INTERNAL_KEY: ${INTERNAL_KEY:?set INTERNAL_KEY in .env}
+      WEB_SIP_PASSWORD: ${WEB_SIP_PASSWORD:?set WEB_SIP_PASSWORD in .env}
+      SIP_PASSWORD: ${SIP_PASSWORD:?set SIP_PASSWORD in .env}
+      BARK_PUSH_PASSWORD: ${BARK_PUSH_PASSWORD:?set BARK_PUSH_PASSWORD in .env}
+      SMS_DOMAIN: ${SMS_DOMAIN:?set SMS_DOMAIN in .env}
+      SIP_DOMAIN: ${SIP_DOMAIN:?set SIP_DOMAIN in .env}
+      TZ: ${TZ:-Asia/Tokyo}
+    volumes:
+      - ./data/app:/data
+      # module temperature / band / cell, written by asterisk/modemstat.sh
+      - ./data/asterisk/modemstat:/modemstat:ro
+      # Daily SQLite backups, ideally on a different disk than the system. The
+      # app only writes there if BACKUP_DIR/.sms-gateway-backup exists, so an
+      # unmounted disk is reported instead of silently filling the system disk.
+      - ${BACKUP_DIR:-./data/backup}:/backup
+    logging: {driver: json-file, options: {max-size: "10m", max-file: "3"}}
+
+  # Self-hosted Bark push server (APNs for the Bark iOS app). Loopback only;
+  # Caddy publishes it as https://SMS_DOMAIN/bark. /register and /ping are
+  # open (the phone registers), pushing requires basic auth (only the app).
+  bark:
+    image: finab/bark-server:v2.3.6
+    network_mode: host
+    restart: unless-stopped
+    environment:
+      BARK_SERVER_ADDRESS: 127.0.0.1:18302
+      BARK_SERVER_URL_PREFIX: /bark
+      BARK_SERVER_BASIC_AUTH_USER: smsgw
+      BARK_SERVER_BASIC_AUTH_PASSWORD: ${BARK_PUSH_PASSWORD:?set BARK_PUSH_PASSWORD in .env}
+      TZ: ${TZ:-Asia/Tokyo}
+    volumes:
+      - ./data/bark:/data
+    logging: {driver: json-file, options: {max-size: "10m", max-file: "3"}}
+
+  caddy:
+    image: caddy:2.11.4-alpine
+    network_mode: host
+    restart: unless-stopped
+    environment:
+      SMS_DOMAIN: ${SMS_DOMAIN:?set SMS_DOMAIN in .env}
+      SIP_DOMAIN: ${SIP_DOMAIN:?set SIP_DOMAIN in .env}
+      CADDY_HTTP_PORT: ${CADDY_HTTP_PORT:-80}
+      CADDY_HTTPS_PORT: ${CADDY_HTTPS_PORT:-443}
+      CADDY_BIND: ${CADDY_BIND:-0.0.0.0}
+    volumes:
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - ./data/caddy:/data
+      - ./data/caddy-config:/config
+    logging: {driver: json-file, options: {max-size: "10m", max-file: "3"}}
+
+  flexisip:
+    build: ./flexisip                     # slow: compiles Flexisip (20-40 min)
+    image: sms-gateway-flexisip:2.6.2-pnfix
+    network_mode: host
+    restart: unless-stopped
+    init: true
+    depends_on: [asterisk, app, caddy]
+    environment:
+      FLEXIAPI_ROUTER_KEY: ${FLEXIAPI_ROUTER_KEY:?set FLEXIAPI_ROUTER_KEY in .env}
+      SMS_DOMAIN: ${SMS_DOMAIN:?set SMS_DOMAIN in .env}
+      SIP_DOMAIN: ${SIP_DOMAIN:?set SIP_DOMAIN in .env}
+      CADDY_HTTPS_PORT: ${CADDY_HTTPS_PORT:-443}
+      PBX_TOKEN: ${PBX_TOKEN:?set PBX_TOKEN in .env}
+    # The push relay is reached as https://SMS_DOMAIN:CADDY_HTTPS_PORT on this
+    # host (Caddy, valid certificate) instead of looping out through the internet.
+    extra_hosts:
+      - "${SMS_DOMAIN:?set SMS_DOMAIN in .env}:127.0.0.1"
+    volumes:
+      - ./flexisip/flexisip.conf.tmpl:/etc/flexisip/flexisip.conf.tmpl:ro
+      - ./flexisip/routes.conf.tmpl:/etc/flexisip/routes.conf.tmpl:ro
+      - ./flexisip/start.sh:/start.sh:ro
+      - ./data/caddy:/caddy-data:ro
+    entrypoint: ["/bin/sh", "/start.sh"]
+    logging: {driver: json-file, options: {max-size: "10m", max-file: "3"}}
+
+  # Optional: only for routers without NAT loopback (at home SIP_DOMAIN must
+  # resolve to the LAN address). Enabled with COMPOSE_PROFILES=lan-dns in .env.
+  dns:
+    build: ./dns
+    image: sms-gateway-dns:local
+    profiles: [lan-dns]
+    network_mode: host
+    restart: unless-stopped
+    environment:
+      LAN_IP: ${LAN_IP:?set LAN_IP in .env}
+      SIP_DOMAIN: ${SIP_DOMAIN:?set SIP_DOMAIN in .env}
+      LAN_DNS_UPSTREAM: ${LAN_DNS_UPSTREAM:-1.1.1.1}
+    logging: {driver: json-file, options: {max-size: "5m", max-file: "2"}}

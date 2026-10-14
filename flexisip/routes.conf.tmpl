@@ -1,0 +1,7 @@
+# Everything that is not Asterisk calling the phone goes to Asterisk, which
+# authenticates it (digest) and applies its ACL. There is deliberately no
+# condition on the request URI: Flexisip must never relay requests to other
+# hosts (it would be an open SIP relay into the internet and the LAN).
+# Asterisk's own requests (From pbx-<PBX_TOKEN>.SIP_DOMAIN) are routed to the
+# registered phone by [module::Router] instead of looping back.
+<sip:127.0.0.1:5060;transport=udp> is_request && (from.uri.domain != 'pbx-${PBX_TOKEN}.${SIP_DOMAIN}')

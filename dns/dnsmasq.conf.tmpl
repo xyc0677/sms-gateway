@@ -1,0 +1,15 @@
+# Home-only DNS for the iPhone's home Wi-Fi ("Configure DNS: Manual <LAN_IP>").
+# The router has no NAT loopback, so at home SIP_DOMAIN must resolve to the
+# LAN address; everything else is forwarded unchanged. Port 53 is LAN/Tailscale
+# only at the host firewall.
+listen-address=${LAN_IP}
+bind-interfaces
+no-resolv
+no-hosts
+domain-needed
+bogus-priv
+strict-order
+server=${LAN_DNS_UPSTREAM}
+server=1.1.1.1
+cache-size=2000
+address=/${SIP_DOMAIN}/${LAN_IP}

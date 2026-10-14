@@ -1,0 +1,71 @@
+--- a/src/pushnotification/rfc8599-push-params.cc
++++ b/src/pushnotification/rfc8599-push-params.cc
+@@ -19,7 +19,9 @@
+ #include "rfc8599-push-params.hh"
+ 
+ #include <regex>
++#include <set>
+ #include <sstream>
++#include <vector>
+ 
+ #include "flexisip/logmanager.hh"
+ 
+@@ -165,24 +167,52 @@
+ 			throw InvalidPushParameters{msg.str()};
+ 		}
+ 
++		// Tokens are normally written as '<token>:voip' or '<token>:remote'. Linphone iOS (observed with
++		// LinphoneiOS/6.2.2, LinphoneSDK/5.5.0) sometimes registers with the service label missing on one
++		// token (e.g. '<voip-token>:voip&<remote-token>') right after being cold-started by a VoIP push.
++		// Be lenient: a token without a label is assigned to the only service that has no explicit token.
++		static const regex lenientTokenRegex{"([^:]+)(?::(voip|remote)?)?"};
++		vector<string> unlabeledTokens{};
++		set<string> assignedServices{};
+ 		for (const auto& tokenAndService : tokenList) {
+-			const auto& re = tokenList.size() == 1 ? sPnPridOneTokenRegex : sPnPridMultipleTokensRegex;
+-			if (!regex_match(tokenAndService, match, re)) {
++			if (!regex_match(tokenAndService, match, lenientTokenRegex)) {
+ 				throw InvalidPushParameters{errPrefix + "syntax of 'pn-prid' is invalid"s};
+ 			}
+ 
++			auto token = match[1].str();
+ 			auto service = match[2].str();
+ 
+-			// If ":remote" or ":voip" was not specified, we assume that the token matches the available service
+-			auto pushParams =
+-			    tokenList.size() == 1 && service.empty() ? servicesAvailable.begin() : servicesAvailable.find(service);
++			if (service.empty()) {
++				unlabeledTokens.push_back(token);
++				continue;
++			}
++
++			auto pushParams = servicesAvailable.find(service);
+ 			if (pushParams == servicesAvailable.end()) {
+ 				throw InvalidPushParameters{errPrefix + "service mismatch between 'pn-param' and 'pn-prid'"s};
+ 			}
+ 
+-			pushParams->second->mPrid = match[1].str();
++			pushParams->second->mPrid = token;
++			assignedServices.insert(service);
+ 		}
+ 
++		if (!unlabeledTokens.empty()) {
++			vector<string> unassignedServices{};
++			for (const auto& kv : servicesAvailable) {
++				if (assignedServices.count(kv.first) == 0) unassignedServices.push_back(kv.first);
++			}
++			// Only an unambiguous assignment is accepted: exactly one unlabeled token for exactly one
++			// remaining service (this also covers the single-token case of the original implementation).
++			if (unlabeledTokens.size() != 1 || unassignedServices.size() != 1) {
++				throw InvalidPushParameters{errPrefix + "service mismatch between 'pn-param' and 'pn-prid'"s};
++			}
++			if (tokenList.size() > 1) {
++				LOGW << "'pn-prid' token without service label, assuming service '" << unassignedServices.front()
++				     << "' (client bug workaround)";
++			}
++			servicesAvailable[unassignedServices.front()]->mPrid = unlabeledTokens.front();
++		}
++
+ 		for (const auto& kv : servicesAvailable) {
+ 			const auto& dest = kv.second;
+ 			for (auto pnType : dest->getSupportedPNTypes()) {

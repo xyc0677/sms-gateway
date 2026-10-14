@@ -1,0 +1,77 @@
+# Flexisip 2.6.2 as SIP push gateway in front of Asterisk (same host).
+# Linphone (stock App Store build) registers here over TLS; we forward to
+# Asterisk on 127.0.0.1:5060/udp, which does the digest auth. When a call comes
+# in for a sleeping phone, PushNotification sends the APNs push through the
+# sms-gateway app (/flexiapi-router) to Linphone's FlexiAPI.
+# Based on sparkcyf/linphone-asterisk-sip-push-gw-work-log (Flexisip 2.6.1).
+[global]
+aliases=localhost ${SIP_DOMAIN}
+transports=sips:${SIP_DOMAIN}:5061;maddr=0.0.0.0 sip:127.0.0.1:5080;transport=udp
+tls-certificates-file=/caddy-data/caddy/certificates/acme-v02.api.letsencrypt.org-directory/${SIP_DOMAIN}/${SIP_DOMAIN}.crt
+tls-certificates-private-key=/caddy-data/caddy/certificates/acme-v02.api.letsencrypt.org-directory/${SIP_DOMAIN}/${SIP_DOMAIN}.key
+# Caddy renews the certificate in place; pick it up.
+tls-certificates-check-interval=1
+log-level=message
+syslog-level=error
+user-errors-logs=true
+show-body-for=false
+
+[global::flexiapi]
+url=https://${SMS_DOMAIN}:${CADDY_HTTPS_PORT}/flexiapi-router
+api-key=${FLEXIAPI_ROUTER_KEY}
+
+[module::DoSProtection]
+# No NET_ADMIN in the container; rate-limit 5061 at the host firewall if you can.
+enabled=false
+
+[module::Authentication]
+# Asterisk authenticates (digest) every REGISTER/INVITE it receives from us.
+enabled=false
+
+[module::Registrar]
+enabled=true
+reg-domains=${SIP_DOMAIN}
+# Only keep a binding once Asterisk has accepted the REGISTER (200 OK).
+reg-on-response=true
+db-implementation=internal
+max-expires=604800
+default-expires=604800s
+
+[module::Router]
+# Only Asterisk's requests (calls *to* the phone, and their in-dialog
+# requests) are routed to registered devices. Asterisk marks them with the
+# From domain pbx-<PBX_TOKEN>.SIP_DOMAIN; the token is secret, so nobody on
+# the internet can make Flexisip ring the phone directly (bypassing call
+# screening, with any caller ID). Do not match on URI parameters such as
+# doroute/CtRt here: anyone can add those.
+filter=(is_request && from.uri.domain == 'pbx-${PBX_TOKEN}.${SIP_DOMAIN}') || is_response
+use-global-domain=true
+# Hold Asterisk's INVITE until the pushed phone has re-registered.
+fork-late=true
+
+[module::PushNotification]
+enabled=true
+apple=false
+firebase=false
+external-push-flexiapi=true
+register-wakeup-interval=30
+register-wakeup-threshold=50
+# Asterisk sends an MWI NOTIFY after each REGISTER; pushing it would wake iOS
+# every ~25 s. Only calls need pushes here.
+enable-message-summaries-pn=false
+
+[module::ContactRouteInserter]
+enabled=true
+insert-domain=true
+
+[module::MediaRelay]
+# Media goes directly phone <-> Asterisk with ICE + SRTP.
+enabled=false
+
+[module::Forward]
+enabled=true
+routes-config-path=/etc/flexisip/routes.conf
+
+[stun-server]
+# Not needed (Asterisk does ICE with its own STUN client); no extra public port.
+enabled=false

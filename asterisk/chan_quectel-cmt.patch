@@ -1,0 +1,149 @@
+diff -ru -x .git a/at_read.c b/at_read.c
+--- a/at_read.c	2026-10-11 15:40:36.105715310 +0800
++++ b/at_read.c	2026-10-11 15:41:30.847080486 +0800
+@@ -23,6 +23,8 @@
+ 
+ #include "chan_quectel.h"
+ #include "at_read.h"
++#include <string.h>			/* memcpy() */
++#include "memmem.h"			/* memmem() for the +CMT reader */
+ #include "ringbuffer.h"
+ 
+ 
+@@ -163,6 +165,35 @@
+ 				rb_read_upd (rb, 2);
+ 				return at_read_result_iov (dev, read_result, rb, iov);
+ 			}
++			else if (rb_memcmp (rb, "+CMT:", 5) == 0)
++			{
++				/* Directly routed SMS-DELIVER: "+CMT: [<alpha>],<length>\r\n<pdu>\r\n".
++				 * The generic line reader would hand over only the header and then
++				 * silently drop the PDU line, so wait until both lines are buffered.
++				 * (Quectel EC20 sends these for some SMS even with +CNMI mt=1.) */
++				struct iovec all[2];
++				char tmp[2048];
++				size_t n = 0;
++				int cnt = rb_read_all_iov (rb, all);
++				int k;
++				for (k = 0; k < cnt && n < sizeof (tmp); ++k)
++				{
++					size_t c = all[k].iov_len < sizeof (tmp) - n ? all[k].iov_len : sizeof (tmp) - n;
++					memcpy (tmp + n, all[k].iov_base, c);
++					n += c;
++				}
++				char * first = memmem (tmp, n, "\r\n", 2);
++				if (first)
++				{
++					char * second = memmem (first + 2, n - (size_t) (first + 2 - tmp), "\r\n", 2);
++					if (second)
++					{
++						*read_result = 0;
++						return rb_read_n_iov (rb, iov, (size_t) (second - tmp));
++					}
++				}
++				return 0;
++			}
+ 			else if (rb_memcmp (rb, "> ", 2) == 0)
+ 			{
+ 				*read_result = 0;
+diff -ru -x .git a/at_response.c b/at_response.c
+--- a/at_response.c	2026-10-11 15:40:36.105775172 +0800
++++ b/at_response.c	2026-10-11 15:41:11.098869060 +0800
+@@ -1487,6 +1487,76 @@
+ }
+ 
+ /*!
++ * \brief Handle an unsolicited +CMT (SMS-DELIVER routed directly to the TE)
++ * \param str -- "+CMT: [<alpha>],<length>\r\n<pdu>"
++ *
++ * Rewritten as "+CMGR: 0,[<alpha>],<length>\r\n<pdu>" for at_parse_cmgr(), then
++ * handled like a stored message (multipart reassembly via smsdb, AMI events,
++ * the "sms" extension). Nothing is stored on the SIM, so nothing to delete.
++ */
++static int at_response_cmt (struct pvt* pvt, const char * str, size_t len)
++{
++	char buf[2200];
++	char oa[512] = "", sca[512] = "";
++	char scts[64] = "", dt[64] = "";
++	int mr, st, res, tpdu_type, csms_cnt, fullmsg_len;
++	char msg[4096];
++	size_t msg_len = sizeof (msg);
++	char text_base64[40800];
++	char fullmsg[160 * 255];
++	pdu_udh_t udh;
++	const char * p = str + 5;
++	size_t plen = len > 5 ? len - 5 : 0;
++
++	pdu_udh_init (&udh);
++	while (plen > 0 && *p == ' ') { ++p; --plen; }
++	if (snprintf (buf, sizeof (buf), "+CMGR: 0,%.*s", (int) plen, p) >= (int) sizeof (buf)) {
++		ast_log (LOG_WARNING, "[%s] +CMT too long, dropped\n", PVT_ID(pvt));
++		return 0;
++	}
++	res = at_parse_cmgr (buf, strlen (buf), &tpdu_type, sca, sizeof (sca), oa, sizeof (oa), scts, &mr, &st, dt, msg, &msg_len, &udh);
++	if (res < 0) {
++		ast_log (LOG_WARNING, "[%s] Error parsing +CMT message: %s\n", PVT_ID(pvt), error2str (chan_quectel_err));
++		return 0;
++	}
++	if (PDUTYPE_MTI(tpdu_type) != PDUTYPE_MTI_SMS_DELIVER) {
++		ast_debug (1, "[%s] +CMT with non-DELIVER TPDU type %d ignored\n", PVT_ID(pvt), tpdu_type);
++		return 0;
++	}
++	if (udh.parts > 1) {
++		ast_verb (1, "[%s] Got +CMT SM part from %s: '%s'; [ref=%d, parts=%d, order=%d]\n", PVT_ID(pvt), oa, msg, udh.ref, udh.parts, udh.order);
++		csms_cnt = smsdb_put (pvt->imsi, oa, udh.ref, udh.parts, udh.order, msg, fullmsg);
++		if (csms_cnt <= 0) {
++			ast_log (LOG_ERROR, "[%s] Error putting SMS to SMSDB\n", PVT_ID(pvt));
++			strncpy (fullmsg, msg, msg_len);
++			fullmsg[msg_len] = '\0';
++		} else if (csms_cnt < udh.parts) {
++			ast_verb (1, "[%s] Waiting for following parts\n", PVT_ID(pvt));
++			return 0;
++		}
++	} else {
++		strncpy (fullmsg, msg, msg_len);
++		fullmsg[msg_len] = '\0';
++	}
++	fullmsg_len = strlen (fullmsg);
++	ast_verb (1, "[%s] Got full SMS (+CMT) from %s: '%s'\n", PVT_ID(pvt), oa, fullmsg);
++	ast_base64encode (text_base64, (unsigned char*) fullmsg, fullmsg_len, sizeof (text_base64));
++	manager_event_new_sms (PVT_ID(pvt), oa, fullmsg);
++	manager_event_new_sms_base64 (PVT_ID(pvt), oa, text_base64);
++	{
++		channel_var_t vars[] =
++		{
++			{ "SMS", fullmsg } ,
++			{ "SMS_BASE64", text_base64 },
++			{ "SMS_TS", scts },
++			{ NULL, NULL },
++		};
++		start_local_channel (pvt, "sms", oa, vars);
++	}
++	return 0;
++}
++
++/*!
+  * \brief Handle +CMGR response
+  * \param pvt -- pvt structure
+  * \param str -- string containing response (null terminated)
+@@ -2149,6 +2219,9 @@
+ 			case RES_CMGR:
+ 				return at_response_cmgr (pvt, str, len);
+ 
++			case RES_CMT:
++				return at_response_cmt (pvt, str, len);
++
+ 			case RES_SMS_PROMPT:
+ 				return at_response_sms_prompt (pvt);
+ 
+diff -ru -x .git a/at_response.h b/at_response.h
+--- a/at_response.h	2026-10-11 15:40:36.105824786 +0800
++++ b/at_response.h	2026-10-11 15:41:11.096191435 +0800
+@@ -24,6 +24,7 @@
+ 	_( CMGR,        "+CMGR",        "+CMGR:") \
+ 	_( CMS_ERROR,   "+CMS ERROR",   "+CMS ERROR:") \
+ 	_( CMTI,        "+CMTI",        "+CMTI:") \
++	_( CMT,         "+CMT",         "+CMT:") \
+ 	_( CDSI,        "+CDSI",        "+CDSI:") \
+ \
+ 	_( CNUM,        "+CNUM",        "+CNUM:") \

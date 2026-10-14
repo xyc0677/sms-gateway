@@ -1,0 +1,52 @@
+# TLS + certificates for the two public names of sms-gateway (SMS_DOMAIN and
+# SIP_DOMAIN in .env). Either Caddy owns 80/443 itself (the defaults), or a
+# front proxy that already owns them hands these two names over:
+#   :80  Host SMS_DOMAIN|SIP_DOMAIN -> CADDY_BIND:CADDY_HTTP_PORT  (ACME HTTP-01)
+#   :443 SNI  SMS_DOMAIN|SIP_DOMAIN -> CADDY_BIND:CADDY_HTTPS_PORT (TLS passthrough)
+# Let's Encrypt certificates live in /data (./data/caddy); Flexisip reads the
+# SIP_DOMAIN one from there for its TLS port 5061.
+{
+	http_port {$CADDY_HTTP_PORT:80}
+	https_port {$CADDY_HTTPS_PORT:443}
+	default_bind {$CADDY_BIND:0.0.0.0}
+	admin off
+}
+
+(app) {
+	reverse_proxy 127.0.0.1:18300 {
+		# Everything arriving here came from the internet (Cloudflare) or from
+		# Flexisip's push relay; the app must never treat it as LAN.
+		header_up X-SMSGW-Public 1
+	}
+}
+
+{$SMS_DOMAIN} {
+	# Self-hosted Bark server (the Bark app's server address is
+	# https://SMS_DOMAIN/bark).
+	@bark path /bark /bark/*
+	handle @bark {
+		reverse_proxy 127.0.0.1:18302
+	}
+	# Web page phone: SIP over WebSocket to Asterisk (loopback 8088), only for
+	# browsers with a logged-in session (the app answers the auth check).
+	handle /ws {
+		forward_auth 127.0.0.1:18300 {
+			uri /internal/ws-auth
+			header_up X-SMSGW-Public 1
+		}
+		reverse_proxy 127.0.0.1:8088
+	}
+	handle {
+		import app
+	}
+}
+
+# Cloudflare may reach the origin over plain HTTP depending on the zone's SSL
+# mode, so serve the app there too instead of redirecting into a loop.
+http://{$SMS_DOMAIN} {
+	import app
+}
+
+{$SIP_DOMAIN} {
+	respond "{$SIP_DOMAIN}: SIP over TLS is on port 5061" 404
+}

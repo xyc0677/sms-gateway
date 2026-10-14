@@ -1,0 +1,1269 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="color-scheme" content="light dark">
+<title>国内号码</title>
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="apple-touch-icon" href="/icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="国内号码">
+<!-- UI: Ionic 8.8.19 (@ionic/core, MIT) + Ionicons, self-hosted under /vendor -->
+<link rel="stylesheet" href="/vendor/ionic/css/ionic.bundle.css">
+<link rel="stylesheet" href="/vendor/ionic/css/palettes/dark.system.css">
+<script>window.Ionic = {config: {mode: "ios", scrollAssist: false, scrollPadding: false}};</script>
+<script type="module" src="/vendor/ionic/dist/ionic.esm.js"></script>
+<style>
+:root{--ion-font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans",sans-serif;--app-bg:#f2f2f7;--app-bg-0:rgba(242,242,247,0);--app-card:#fff}
+/* iOS grouped look; ":root.ios" so it wins over Ionic's dark palette (same selector, later) */
+:root.ios{--ion-item-background:var(--app-card)}
+@media (prefers-color-scheme:dark){:root{--app-bg:#000;--app-bg-0:rgba(0,0,0,0);--app-card:#1c1c1e}:root.ios{--ion-item-background:var(--app-card)}}
+ion-content{--background:var(--app-bg)}
+ion-card{--background:var(--app-card);--color:var(--ion-text-color)}
+ion-list.list-inset{background:var(--app-card)}
+ion-list-header{--color:var(--ion-color-medium);font-size:13px;font-weight:400;min-height:0;padding-top:22px;margin-bottom:-8px;letter-spacing:.2px}
+ion-list-header ion-label{margin:0!important}
+ion-list-header ion-button{font-size:14px;height:auto;margin:0 4px 0 0}
+.hidden{display:none!important}
+/* ---- iOS 26 Liquid Glass -------------------------------------------------
+   Safari can't refract (no SVG backdrop filters), so the "lens" is built from:
+   a thin tint + strong blur/saturation, a specular rim (bright top-left and
+   bottom-right), an inner glow for thickness, a soft sheen, and springy motion. */
+html,body{overflow-x:hidden;overscroll-behavior-x:none;background:var(--app-bg)}
+:root{--g-fill:rgba(255,255,255,.30);--g-rim:rgba(255,255,255,.95);--g-rim-lo:rgba(255,255,255,.22);--g-sheen:rgba(255,255,255,.5);
+  --g-drop:0 14px 34px rgba(0,0,0,.13),0 2px 8px rgba(0,0,0,.07);--g-inner:inset 0 0 16px rgba(255,255,255,.4);
+  --g-blur:blur(16px) saturate(210%) brightness(1.06);--g-ink:#111114;--g-tint:rgba(255,255,255,.7);--g-tint-hi:rgba(255,255,255,1);
+  --edge:rgba(242,242,247,.86);--edge-0:rgba(242,242,247,0);--search:rgba(120,120,128,.12);
+  --spring:cubic-bezier(.34,1.56,.64,1);--ease:cubic-bezier(.22,.9,.24,1)}
+@media (prefers-color-scheme:dark){:root{--g-fill:rgba(36,36,40,.36);--g-rim:rgba(255,255,255,.42);--g-rim-lo:rgba(255,255,255,.07);--g-sheen:rgba(255,255,255,.12);
+  --g-drop:0 14px 34px rgba(0,0,0,.55),0 2px 8px rgba(0,0,0,.35);--g-inner:inset 0 0 16px rgba(255,255,255,.07);
+  --g-blur:blur(16px) saturate(180%) brightness(.92);--g-ink:#f5f5f7;--g-tint:rgba(255,255,255,.16);--g-tint-hi:rgba(255,255,255,.3);
+  --edge:rgba(0,0,0,.78);--edge-0:rgba(0,0,0,0);--search:rgba(118,118,128,.24)}}
+.glass{position:relative;isolation:isolate;background:var(--g-fill);-webkit-backdrop-filter:var(--g-blur);backdrop-filter:var(--g-blur);color:var(--g-ink);
+  box-shadow:var(--g-drop),var(--g-inner),inset 0 1px 1.5px var(--g-rim),inset 0 -1px 1px var(--g-rim-lo)}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1.2px;pointer-events:none;z-index:3;
+  background:linear-gradient(135deg,var(--g-rim) 0%,var(--g-rim-lo) 28%,transparent 50%,var(--g-rim-lo) 72%,var(--g-rim) 100%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.glass::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;
+  background:radial-gradient(130% 80% at 22% -18%,var(--g-sheen),transparent 55%),radial-gradient(70% 60% at 92% 125%,var(--g-rim-lo),transparent 60%)}
+/* nav bar: floating glass controls over a progressive-blur scroll edge */
+ion-header{background:transparent!important;box-shadow:none!important}
+ion-header::after,ion-header .header-background,ion-footer::before,ion-footer .footer-background{display:none!important}
+.navbar{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;padding:calc(env(safe-area-inset-top) + 6px) 16px 10px}
+.nav-l{justify-self:start;display:flex}.nav-r{justify-self:end;display:flex}
+.nav-title{font-size:17px;font-weight:700;max-width:52vw;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:center;color:var(--ion-text-color)}
+.edge{position:absolute;left:0;right:0;top:0;bottom:-34px;pointer-events:none;z-index:1;background:linear-gradient(var(--edge) 0%,var(--edge) 40%,var(--edge-0) 100%);
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);-webkit-mask-image:linear-gradient(#000 50%,transparent);mask-image:linear-gradient(#000 50%,transparent)}
+.gbtn,.gcluster button,.tabbar button,.send{appearance:none;border:0;font:inherit;-webkit-tap-highlight-color:transparent;cursor:pointer}
+.gbtn{border-radius:999px;height:44px;min-width:44px;padding:0 10px;display:inline-flex;align-items:center;justify-content:center;font-size:22px;
+  transition:scale .5s var(--spring),filter .3s}
+.gcluster{display:flex;align-items:center;border-radius:999px;height:44px;padding:0 3px}
+.gcluster button{width:40px;height:40px;border-radius:50%;background:none;display:grid;place-items:center;color:var(--g-ink);font-size:21px;transition:scale .5s var(--spring)}
+.gcluster button.danger{color:var(--ion-color-danger)}
+.gbtn:active,.gcluster:active{scale:1.1;filter:brightness(1.12) saturate(1.2)}
+/* floating docks */
+ion-footer{background:transparent!important;box-shadow:none!important}
+.dock{position:relative;box-sizing:border-box;width:100%;padding:0 16px calc(env(safe-area-inset-bottom) + 8px)}
+/* keyboard open: the app occupies only the visible area above the keyboard */
+/* typing: the page stays put (focus without scrolling); only the composer rides
+   up on the keyboard, on the keyboard's own curve */
+#compose{transform:translateY(calc(-1 * var(--kb, 0px)));transition:transform .42s cubic-bezier(.2,.9,.25,1)}
+#compose .dock{transition:padding-bottom .42s cubic-bezier(.2,.9,.25,1)}
+html.typing #compose .dock{padding-bottom:8px}
+#content{--padding-bottom:var(--kbpad, 0px)}  /* room for the lifted composer; changed without moving the view */
+.edge-b{position:absolute;left:0;right:0;bottom:0;top:-30px;pointer-events:none;background:linear-gradient(var(--edge-0),var(--edge) 75%);
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);-webkit-mask-image:linear-gradient(transparent,#000 50%);mask-image:linear-gradient(transparent,#000 50%)}
+.tabbar{display:flex;box-sizing:border-box;width:100%;max-width:520px;margin:0 auto;height:62px;padding:4px;border-radius:999px;
+  transform-origin:50% 100%;transition:scale .55s var(--spring),translate .55s var(--spring)}
+.tabbar.mini{scale:.84;translate:0 4px}
+#tabs:not(.hidden) .tabbar{animation:tabs-in .5s var(--ease) both}
+@keyframes tabs-in{from{opacity:0;translate:0 28px}}
+.tabbar button{flex:1;min-width:0;position:relative;z-index:1;background:none;border-radius:999px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:1px;color:var(--g-ink);transition:color .35s,scale .45s var(--spring)}
+.tabbar button ion-icon{font-size:25px}
+.tabbar button span{font-size:10px;font-weight:600;max-height:14px;overflow:hidden;transition:opacity .25s,max-height .35s var(--ease)}
+.tabbar.mini button span{opacity:0;max-height:0}
+.tabbar button.on{color:var(--ion-color-primary)}
+.tabbar button:active{scale:.9}
+.droplet{position:absolute;top:4px;bottom:4px;left:0;width:0;border-radius:999px;z-index:0;background:var(--g-tint);
+  box-shadow:inset 0 1px 1px var(--g-tint-hi),inset 0 -1px 1px var(--g-rim-lo),0 3px 12px rgba(0,0,0,.08);
+  transition:translate .6s var(--spring),width .6s var(--spring)}
+.droplet.moving{animation:squish .6s var(--ease)}
+/* held: the droplet lifts into a bigger, brighter lens that follows the finger */
+.droplet.held{transition:translate .18s var(--ease),width .3s var(--spring),scale .35s var(--spring);scale:1.14 1.22;
+  background:rgba(255,255,255,.28);box-shadow:inset 0 1px 2px rgba(255,255,255,.95),inset 0 -1px 2px rgba(255,255,255,.5),0 6px 20px rgba(0,0,0,.18)}
+/* ---- live lens: a clone of the content under each glass control, bent by an
+   SVG displacement map (real refraction; Safari can filter elements, just not
+   backdrops). Sits under the control's sheen and content. */
+.lens{position:absolute;inset:0;border-radius:inherit;overflow:hidden;z-index:-2;pointer-events:none;-webkit-mask-image:-webkit-radial-gradient(white,black)}
+.lens-bend{position:absolute;inset:0;background:var(--app-bg)}  /* filtered layer; .lens clips it to the rounded shape */
+.lens-clone{position:absolute;left:0;top:0;transform-origin:0 0;pointer-events:none}
+.has-lens:not(.mini){--g-fill:rgba(255,255,255,.08);-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+.lens{transition:opacity .3s}.mini>.lens{opacity:0}  /* shrunk bar: the scale transform garbles filters, use plain glass */
+@media (prefers-color-scheme:dark){.has-lens{--g-fill:rgba(255,255,255,.04)}}
+@keyframes squish{0%{scale:1 1}28%{scale:1.25 .8}58%{scale:.94 1.06}80%{scale:1.02 .98}100%{scale:1 1}}
+.composer{display:flex;align-items:flex-end;gap:6px;box-sizing:border-box;width:100%;border-radius:24px;padding:4px}
+.composer ion-textarea{flex:1;min-width:0;font-size:16px;min-height:40px;--background:transparent;--color:var(--g-ink);
+  --padding-start:12px;--padding-end:6px;--padding-top:9px;--padding-bottom:9px}
+.send{width:40px;height:40px;flex:none;border-radius:50%;background:var(--ion-color-primary);color:#fff;display:grid;place-items:center;font-size:20px;
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.55),0 4px 14px rgba(0,122,255,.35);transition:scale .45s var(--spring),opacity .2s}
+.send:active{scale:1.14}.send:disabled{opacity:.45}
+/* page transitions (View Transitions API, Safari 18+) */
+#content{view-transition-name:page}
+#hdr{view-transition-name:hdr}
+::view-transition-old(hdr){display:none}
+::view-transition-new(hdr){animation:none}
+/* glass controls appear with a springy pop instead of a crossfade */
+.gbtn:not(.hidden),.gcluster:not(.hidden){animation:glass-pop .5s var(--spring) both}
+.nav-title{animation:title-in .3s var(--ease) both}
+@keyframes glass-pop{from{opacity:0;scale:.6}}
+@keyframes title-in{from{opacity:0;translate:0 4px}}
+#tabs{view-transition-name:tabbar}
+#compose{view-transition-name:composer}
+::view-transition-old(tabbar){display:none}
+::view-transition-new(tabbar){animation:none}
+::view-transition-group(page){animation-duration:.45s}
+html[data-vt=push]::view-transition-old(page){animation:.45s var(--ease) both vt-out-l}
+html[data-vt=push]::view-transition-new(page){animation:.45s var(--ease) both vt-in-r;box-shadow:-10px 0 30px rgba(0,0,0,.12)}
+html[data-vt=pop]::view-transition-old(page){animation:.42s var(--ease) both vt-out-r;z-index:2;box-shadow:-10px 0 30px rgba(0,0,0,.12)}
+html[data-vt=pop]::view-transition-new(page){animation:.42s var(--ease) both vt-in-l}
+html[data-vt=tab]::view-transition-old(page){animation:.12s ease-out both vt-fade-out}
+html[data-vt=tab]::view-transition-new(page){animation:.38s var(--ease) both vt-rise}
+@keyframes vt-in-r{from{translate:100% 0}}@keyframes vt-out-l{to{translate:-30% 0;opacity:.55}}
+@keyframes vt-out-r{to{translate:100% 0}}@keyframes vt-in-l{from{translate:-30% 0;opacity:.55}}
+@keyframes vt-fade-out{to{opacity:0}}@keyframes vt-rise{from{opacity:0;translate:0 14px;scale:.985}}
+@media (prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
+/* content */
+ion-list.list-inset{border-radius:24px!important;margin-inline:16px}
+ion-card{border-radius:24px;box-shadow:none;margin-inline:16px}
+ion-content ion-button{--border-radius:999px}
+ion-searchbar{--border-radius:999px!important;--background:var(--search)!important;padding-inline:16px!important}
+ion-alert .alert-wrapper{border-radius:30px!important}
+ion-toast::part(container){border-radius:999px;background:var(--g-fill);-webkit-backdrop-filter:var(--g-blur);backdrop-filter:var(--g-blur);box-shadow:var(--g-drop),inset 0 1px 1.5px var(--g-rim)}
+ion-toast{--background:transparent;--color:var(--ion-text-color)}
+.hint{font-size:13px;color:var(--ion-color-medium);margin:6px 20px 14px;line-height:1.5}
+.hint code{font-size:12px;word-break:break-all}
+.btnrow{display:flex;flex-wrap:wrap;gap:8px;margin:0 16px 22px}
+.empty{text-align:center;color:var(--ion-color-medium);padding:48px 20px}
+.empty ion-icon{font-size:52px;opacity:.45}
+.empty p{margin:8px 0 0}
+/* conversations */
+.avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:22px;background:hsl(var(--h) 55% 55%)}
+.end{display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.end ion-note{font-size:13px}
+#main.fill,.lens-clone.fill{min-height:100%;display:flex;flex-direction:column}
+.chat{padding:10px 12px 18px;overflow-x:hidden;margin-top:auto}  /* short threads hug the composer, like Messages */
+.bubble{max-width:80%;width:fit-content;padding:8px 12px;border-radius:18px;margin:2px 0;white-space:pre-wrap;word-break:break-word;font-size:16px;line-height:1.38}
+.bubble.in{background:var(--app-card);color:var(--ion-text-color)}
+.bubble.out{background:var(--ion-color-primary);color:#fff;margin-left:auto}
+.bubble.spam{opacity:.6}
+.bubble ion-chip{margin:6px 0 0;height:28px;font-weight:700;letter-spacing:1px}
+.spamnote{font-size:12px;margin-top:4px;display:flex;align-items:center;gap:4px;color:var(--ion-color-warning-shade)}
+.meta{font-size:11px;color:var(--ion-color-medium);margin:3px 8px 12px;display:flex;gap:6px;align-items:center}
+.meta.r{justify-content:flex-end}
+.meta ion-icon{font-size:14px}
+.meta .del{cursor:pointer;opacity:.7}
+/* blocked */
+.spamrow{width:100%;padding:10px 0}
+.spamrow .top{display:flex;align-items:center;gap:8px}
+.spamrow .top b{font-weight:600}
+.spamrow .top ion-note{margin-left:auto;font-size:13px}
+.spamrow .body{color:var(--ion-color-medium-shade);font-size:14px;margin:4px 0 6px;white-space:pre-wrap;word-break:break-word}
+.spamrow ion-button{margin:0 6px 0 0}
+/* status */
+.hero{display:flex;align-items:center;gap:14px;padding:18px}
+.hero>ion-icon{font-size:52px;flex:none}
+.hero h2{margin:0;font-size:20px;font-weight:700;color:var(--ion-text-color)}
+.hero p{margin:4px 0 0;color:var(--ion-color-medium);font-size:14px}
+.sig{display:flex;align-items:flex-end;gap:3px;height:18px}
+.sig i{width:5px;border-radius:1.5px;background:var(--ion-color-light-shade)}
+.sig i.on{background:var(--ion-color-success)}
+.sig.warn i.on{background:var(--ion-color-warning)}.sig.danger i.on{background:var(--ion-color-danger)}
+.meter{width:100%;padding:10px 0}
+.meter .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px}
+.meter .top b{font-weight:500}
+.meter .top span{font-weight:700;font-variant-numeric:tabular-nums}
+.meter ion-progress-bar{height:8px;border-radius:4px;--background:#e5e5ea}
+@media (prefers-color-scheme:dark){.meter ion-progress-bar{--background:#3a3a3c}}
+.meter .sub{font-size:12px;color:var(--ion-color-medium);margin-top:5px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;padding:12px}
+.stats div{text-align:center;padding:10px 2px;border-radius:12px;background:var(--app-bg)}
+.stats ion-icon{font-size:22px}
+.stats b{display:block;font-size:24px;line-height:1.25;color:var(--ion-text-color)}
+.stats span{font-size:12px;color:var(--ion-color-medium)}
+.c-success{color:var(--ion-color-success)}.c-warning{color:var(--ion-color-warning)}.c-danger{color:var(--ion-color-danger)}
+.login-hero{text-align:center;padding:48px 0 12px}
+/* in-page call screen */
+.callui{position:fixed;inset:0;z-index:30000;display:flex;flex-direction:column;align-items:center;color:#fff;
+  padding:calc(env(safe-area-inset-top) + 56px) 24px calc(env(safe-area-inset-bottom) + 34px);
+  background:radial-gradient(120% 80% at 50% 0%,rgba(70,80,110,.9),rgba(12,12,16,.94));-webkit-backdrop-filter:blur(40px) saturate(170%);backdrop-filter:blur(40px) saturate(170%);
+  animation:cu-in .45s var(--ease) both}
+.callui.closing{animation:cu-out .35s var(--ease) both}
+@keyframes cu-in{from{opacity:0;translate:0 40px}}@keyframes cu-out{to{opacity:0;translate:0 40px}}
+.cu-avatar{width:96px;height:96px;border-radius:50%;display:grid;place-items:center;font-size:48px;background:rgba(255,255,255,.14);
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.4),0 10px 30px rgba(0,0,0,.35)}
+.cu-num{font-size:30px;font-weight:600;margin-top:16px;text-align:center}
+.cu-info{font-size:14px;opacity:.7;margin-top:4px;text-align:center}
+.cu-status{font-size:16px;opacity:.85;margin-top:10px;font-variant-numeric:tabular-nums}
+.cu-grow{flex:1}
+.cu-btns{display:grid;grid-template-columns:repeat(3,76px);gap:22px 30px;justify-content:center}
+.cu-b{appearance:none;border:0;width:76px;height:76px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+  color:#fff;background:rgba(255,255,255,.16);font:inherit;font-size:11px;box-shadow:inset 0 1px 1px rgba(255,255,255,.35);transition:scale .4s var(--spring),background .2s}
+.cu-b ion-icon{font-size:28px}.cu-b:active{scale:1.1}.cu-b.on{background:#fff;color:#111}
+.cu-pad{display:grid;grid-template-columns:repeat(3,72px);gap:14px 26px;margin-bottom:22px}
+.cu-pad button{appearance:none;border:0;width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.16);color:#fff;font-size:30px;
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.35);transition:scale .3s var(--spring)}
+.cu-pad button:active{scale:1.1;background:rgba(255,255,255,.3)}
+.cu-hang{appearance:none;border:0;width:76px;height:76px;border-radius:50%;background:#ff3b30;color:#fff;font-size:34px;margin-top:28px;
+  display:grid;place-items:center;box-shadow:0 8px 24px rgba(255,59,48,.45);transition:scale .4s var(--spring)}
+.cu-hang ion-icon{rotate:135deg}.cu-hang:active{scale:1.1}
+/* number info */
+.loc{font-size:12px;font-weight:400;color:var(--ion-color-medium);margin-left:6px}
+.nm{font-size:13px;font-weight:600;color:var(--ion-color-primary);margin-left:6px}
+.tagchip{display:inline-block;font-size:11px;font-weight:600;padding:1px 7px;border-radius:999px;margin-left:6px;vertical-align:1px;
+  background:rgba(255,149,0,.16);color:#c26a00}.tagchip.bad{background:rgba(255,59,48,.14);color:var(--ion-color-danger)}
+.tagchip.ok{background:rgba(52,199,89,.16);color:#1f8f3f}.tagchip.info{background:rgba(0,122,255,.12);color:var(--ion-color-primary)}
+.mark-note{font-size:12px;color:var(--ion-color-medium);margin-top:6px}.mark-note a{color:var(--ion-color-primary);text-decoration:none;margin-left:4px}
+@media (prefers-color-scheme:dark){.tagchip{color:#ffb340}.tagchip.ok{color:#5be07a}}
+.nav-mid{display:flex;flex-direction:column;align-items:center;min-width:0;max-width:56vw}
+.nav-sub{font-size:11px;color:var(--ion-color-medium);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:56vw}
+.nav-sub:empty{display:none}
+/* number detail */
+.contact-hero{text-align:center;padding:18px 16px 6px}
+.big-avatar{width:84px;height:84px;margin:0 auto 10px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:42px;
+  background:linear-gradient(160deg,hsl(var(--h) 60% 62%),hsl(var(--h) 55% 48%));box-shadow:0 8px 24px hsl(var(--h) 50% 40% / .3)}
+.contact-hero h1{margin:0;font-size:26px;font-weight:700;letter-spacing:.3px}
+.contact-hero .sub{color:var(--ion-color-medium);font-size:14px;margin-top:3px}
+.kwchips{display:flex;flex-wrap:wrap;gap:6px;padding:10px 0}.kwchips ion-chip{margin:0}
+.contact-hero .chips{margin-top:8px}.contact-hero .chips .tagchip{font-size:12px;padding:2px 9px}
+.contact-hero .cat{background:var(--search);color:var(--ion-text-color)}
+.actions{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 4px 4px}
+.act{appearance:none;border:0;font:inherit;border-radius:18px;padding:10px 0 8px;display:flex;flex-direction:column;align-items:center;gap:3px;
+  color:var(--ion-color-primary);font-size:12px;font-weight:600;transition:scale .45s var(--spring);-webkit-tap-highlight-color:transparent}
+.act ion-icon{font-size:24px}.act:active{scale:1.08}.act:disabled{opacity:.35}
+.act.danger{color:var(--ion-color-danger)}
+/* dial pad */
+.dialer{display:flex;flex-direction:column;align-items:center;padding:8px 0 20px}
+.dial-num{font-size:36px;font-weight:300;letter-spacing:1px;min-height:48px;text-align:center;padding:0 20px;word-break:break-all;font-variant-numeric:tabular-nums}
+.dial-info{font-size:13px;color:var(--ion-color-medium);min-height:20px;margin-bottom:14px;text-align:center}
+.keys{display:grid;grid-template-columns:repeat(3,76px);gap:16px 26px}
+.key{appearance:none;border:0;font:inherit;width:76px;height:76px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  color:var(--ion-text-color);transition:scale .4s var(--spring),filter .2s;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none}
+.key b{font-size:32px;font-weight:400;line-height:1}.key small{font-size:10px;font-weight:600;letter-spacing:1.5px;color:var(--ion-color-medium);min-height:12px}
+.key:active{scale:1.1;filter:brightness(1.15)}
+.dial-row{display:grid;grid-template-columns:repeat(3,76px);gap:26px;margin-top:18px;align-items:center;justify-items:center}
+.callbtn{appearance:none;border:0;width:76px;height:76px;border-radius:50%;background:#34c759;color:#fff;font-size:34px;display:grid;place-items:center;
+  box-shadow:inset 0 1px 1px rgba(255,255,255,.5),0 8px 22px rgba(52,199,89,.4);transition:scale .4s var(--spring)}
+.callbtn:active{scale:1.1}.callbtn:disabled{opacity:.4}
+.key-del{appearance:none;border:0;background:none;color:var(--ion-color-medium);font-size:30px;width:60px;height:60px}
+.login-hero ion-icon{font-size:64px}
+.login-hero h2{margin:8px 0 0}
+</style>
+</head>
+<body>
+<ion-app>
+  <ion-header id="hdr" translucent="true">
+    <div class="edge"></div>
+    <div class="navbar">
+      <div class="nav-l"><button id="back" class="gbtn glass hidden" aria-label="返回"><ion-icon name="chevron-back"></ion-icon></button></div>
+      <div class="nav-mid"><div id="title" class="nav-title">国内号码</div><div id="subtitle" class="nav-sub"></div></div>
+      <div class="nav-r"><div id="tbEnd" class="gcluster glass hidden"></div></div>
+    </div>
+  </ion-header>
+  <ion-content id="content" fullscreen="true" scroll-events="true"><div id="main"></div></ion-content>
+  <ion-footer id="compose" class="hidden" translucent="true"><div class="dock"><div class="edge-b"></div>
+    <div class="composer glass">
+      <ion-textarea id="body" auto-grow="true" rows="1" placeholder="短信" aria-label="短信内容" autocapitalize="off"></ion-textarea>
+      <button id="sendBtn" class="send" aria-label="发送"><ion-icon name="arrow-up"></ion-icon></button>
+    </div></div></ion-footer>
+  <ion-footer id="tabs" class="hidden" translucent="true"><div class="dock"><div class="edge-b"></div>
+    <nav id="tabbar" class="tabbar glass"><span class="droplet"></span>
+      <button data-tab="threads"><ion-icon name="chatbubbles"></ion-icon><span>短信</span></button>
+      <button data-tab="calls"><ion-icon name="call"></ion-icon><span>通话</span></button>
+      <button data-tab="spam"><ion-icon name="shield-checkmark"></ion-icon><span>拦截</span></button>
+      <button data-tab="status"><ion-icon name="pulse"></ion-icon><span>状态</span></button>
+      <button data-tab="settings"><ion-icon name="settings"></ion-icon><span>设置</span></button>
+    </nav></div></ion-footer>
+</ion-app>
+<audio id="remoteAudio" autoplay playsinline></audio>
+<div id="callui" class="callui hidden" role="dialog" aria-label="通话">
+  <div class="cu-avatar"><ion-icon name="call"></ion-icon></div>
+  <div class="cu-num" id="cuNum"></div><div class="cu-info" id="cuInfo"></div><div class="cu-status" id="cuStatus"></div>
+  <div class="cu-grow"></div>
+  <div class="cu-pad hidden" id="cuPad"><button data-d="1">1</button><button data-d="2">2</button><button data-d="3">3</button><button data-d="4">4</button><button data-d="5">5</button><button data-d="6">6</button><button data-d="7">7</button><button data-d="8">8</button><button data-d="9">9</button><button data-d="*">*</button><button data-d="0">0</button><button data-d="#">#</button></div>
+  <div class="cu-btns">
+    <button class="cu-b" id="cuMute"><ion-icon name="mic-off"></ion-icon>静音</button>
+    <button class="cu-b" id="cuKeys"><ion-icon name="keypad"></ion-icon>键盘</button>
+    <button class="cu-b" id="cuLin"><ion-icon name="swap-horizontal"></ion-icon>Linphone</button>
+  </div>
+  <button class="cu-hang" id="cuHang" aria-label="挂断"><ion-icon name="call"></ion-icon></button>
+</div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs id="lensDefs"></defs></svg>
+<script>
+const $ = (s, el = document) => el.querySelector(s);
+const lsGet = k => { try { return +localStorage.getItem(k) || 0; } catch { return 0; } };
+const lsSet = (k, v) => { try { localStorage.setItem(k, v); } catch {} };
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const fmt = iso => { const d = new Date(iso); if (isNaN(d)) return ""; const n = new Date();
+  return d.toDateString() === n.toDateString() ? d.toLocaleTimeString("zh-CN",{hour:"2-digit",minute:"2-digit"})
+       : d.toLocaleString("zh-CN",{month:"numeric",day:"numeric",hour:"2-digit",minute:"2-digit"}); };
+const codeOf = t => { const m = t.match(/(?:验证码|校验码|动态码|确认码|驗證碼|code)[^0-9A-Za-z]{0,12}([0-9]{4,8})/i); return m ? m[1] : ""; };
+const COLOR = {ok: "success", warn: "warning", bad: "danger"};
+async function api(path, opts = {}) {
+  const r = await fetch(path, {...opts, headers: {"X-Requested-With": "fetch", "Content-Type": "application/json", ...(opts.headers || {})}});
+  if (r.status === 401 && current?.view !== "login") { route("login"); throw new Error("未登录"); }
+  if (!r.ok) { let m = r.statusText; try { m = (await r.json()).detail || m; } catch {} throw new Error(m); }
+  return r.status === 204 ? null : r.json();
+}
+function toast(message, color = "dark") {
+  const t = Object.assign(document.createElement("ion-toast"), {message, color, duration: 2200, position: "top"});
+  document.body.appendChild(t); t.addEventListener("didDismiss", () => t.remove()); t.present();
+}
+// iOS-style confirm; resolves true when the user picks the action button.
+function ask(header, message, okText, destructive = true) {
+  return new Promise(res => {
+    const a = Object.assign(document.createElement("ion-alert"), {header, message,
+      buttons: [{text: "取消", role: "cancel"}, {text: okText, role: destructive ? "destructive" : "confirm"}]});
+    document.body.appendChild(a);
+    a.addEventListener("didDismiss", e => { a.remove(); res(e.detail.role !== "cancel" && e.detail.role !== "backdrop"); });
+    a.present();
+  });
+}
+const empty = (icon, text) => `<div class="empty"><ion-icon name="${icon}"></ion-icon><p>${text}</p></div>`;
+function setTitle(t, sub = "") { $("#subtitle").textContent = sub; const el = $("#title"); if (el.textContent === t) return; el.textContent = t;
+  el.style.animation = "none"; void el.offsetWidth; el.style.animation = ""; }
+function toolbar(buttons = []) {
+  const el = $("#tbEnd");
+  el.classList.toggle("hidden", !buttons.length);
+  el.style.animation = "none"; void el.offsetWidth; el.style.animation = "";
+  el.innerHTML = buttons.map((b, i) => `<button data-i="${i}" aria-label="${b.label}" class="${b.color || ""}"><ion-icon name="${b.icon}"></ion-icon></button>`).join("");
+  el.querySelectorAll("button").forEach(x => x.onclick = buttons[x.dataset.i].on);
+}
+// Tab bar: a glass "droplet" springs to the selected tab and squishes on the way.
+function placeDroplet(animate) {
+  const bar = $("#tabbar"), on = bar.querySelector("button.on"), d = bar.querySelector(".droplet");
+  if (!on || !bar.offsetWidth) return;
+  if (!animate) d.style.transition = "none";
+  d.style.width = on.offsetWidth + "px"; d.style.translate = on.offsetLeft + "px 0";
+  if (!animate) { void d.offsetWidth; d.style.transition = ""; }
+  else { d.classList.remove("moving"); void d.offsetWidth; d.classList.add("moving"); }
+}
+function setTab(tab) {
+  let moved = false;
+  $("#tabbar").querySelectorAll("button").forEach(b => { const on = b.dataset.tab === tab; if (on && !b.classList.contains("on")) moved = true; b.classList.toggle("on", on); });
+  requestAnimationFrame(() => placeDroplet(moved && !!$("#tabbar").querySelector(".droplet").style.width));
+}
+new ResizeObserver(() => placeDroplet(false)).observe($("#tabbar"));
+// Hold the tab bar and slide: the droplet follows the finger as a lens, then
+// snaps to the tab under it on release.
+(() => {
+  const bar = $("#tabbar"), d = bar.querySelector(".droplet");
+  let held = null;
+  const tabAt = x => [...bar.querySelectorAll("button")].find(b => { const r = b.getBoundingClientRect(); return x >= r.left && x <= r.right; });
+  const follow = x => { const r = bar.getBoundingClientRect(), s = r.width / bar.offsetWidth, w = d.offsetWidth;
+    d.style.translate = Math.max(4, Math.min(bar.offsetWidth - w - 4, (x - r.left) / s - w / 2)) + "px 0"; };
+  bar.addEventListener("pointerdown", e => { held = {x: e.clientX, moved: false}; d.classList.remove("moving"); d.classList.add("held"); follow(e.clientX); });
+  bar.addEventListener("pointermove", e => { if (!held) return; if (Math.abs(e.clientX - held.x) > 6) held.moved = true; follow(e.clientX); });
+  const end = e => { if (!held) return; const wasMoved = held.moved; held = null; d.classList.remove("held");
+    const t = tabAt(e.clientX);
+    if (wasMoved && t && !t.classList.contains("on")) { location.hash = ""; route(t.dataset.tab); } else placeDroplet(true); };
+  bar.addEventListener("pointerup", end); bar.addEventListener("pointercancel", e => { held = null; d.classList.remove("held"); placeDroplet(true); });
+})();
+// ---- Live lens -----------------------------------------------------------
+// Each glass control holds a clone of #main kept pixel-aligned with the real
+// content (updated every frame while anything moves) and bent through an SVG
+// displacement map: edges bend and compress like the rim of a glass lens, the
+// middle magnifies slightly. Works in Safari because the filter applies to an
+// element (the clone), not to the backdrop.
+const lensTargets = () => ["#tabbar", ".composer"].map(q => $(q)).filter(Boolean);  // the big panes; small buttons sit over flat background
+const lenses = new Map();
+function lensMap(w, h, r) {
+  // drawn at device-pixel size: WebKit uses the map's own pixels on HiDPI screens
+  const k = Math.min(3, Math.round(window.devicePixelRatio || 1)), W = w * k, H = h * k;
+  const c = Object.assign(document.createElement("canvas"), {width: W, height: H}), g = c.getContext("2d"), img = g.createImageData(W, H);
+  const band = Math.min(h / 2, 12), cx = w / 2, cy = h / 2;
+  for (let Y = 0; Y < H; Y++) for (let X = 0; X < W; X++) {
+    const px = (X + .5) / k - cx, py = (Y + .5) / k - cy;
+    const qx = Math.max(Math.abs(px) - (cx - r), 0), qy = Math.max(Math.abs(py) - (cy - r), 0);
+    let nx, ny, dist;
+    if (qx > 0 && qy > 0) { const l = Math.hypot(qx, qy) || 1; dist = r - l; nx = Math.sign(px) * qx / l; ny = Math.sign(py) * qy / l; }
+    else if (cx - Math.abs(px) < cy - Math.abs(py)) { dist = cx - Math.abs(px); nx = Math.sign(px); ny = 0; }
+    else { dist = cy - Math.abs(py); nx = 0; ny = Math.sign(py); }
+    const t = Math.max(0, Math.min(1, 1 - dist / band)), m = t * t * t;  // rim strength: only the last few points bend
+    // sample inward at the rim (bent edge) + slightly toward the centre (magnify)
+    const dx = -nx * m * .5 - (px / cx) * .015, dy = -ny * m * .5 - (py / cy) * .015;
+    const i = (Y * W + X) * 4;
+    img.data[i] = 128 + dx * 255; img.data[i + 1] = 128 + dy * 255; img.data[i + 2] = 128; img.data[i + 3] = 255;
+  }
+  g.putImageData(img, 0, 0);
+  return c.toDataURL();
+}
+function lensFilter(id, w, h, r) {
+  const ns = "http://www.w3.org/2000/svg", f = document.createElementNS(ns, "filter");
+  Object.entries({id, x: 0, y: 0, width: w, height: h, filterUnits: "userSpaceOnUse", primitiveUnits: "userSpaceOnUse", "color-interpolation-filters": "sRGB"})
+    .forEach(([k, v]) => f.setAttribute(k, v));
+  f.innerHTML = `<feImage href="${lensMap(w, h, r)}" x="0" y="0" width="${w}" height="${h}" preserveAspectRatio="none" result="map"/>
+    <feDisplacementMap in="SourceGraphic" in2="map" scale="16" xChannelSelector="R" yChannelSelector="G" result="bent"/>
+    <feGaussianBlur in="bent" stdDeviation=".5"/>`;
+  $("#lensDefs").querySelector("#" + id)?.remove();
+  $("#lensDefs").appendChild(f);
+}
+let lensClone = null, lensDirty = true, lensSeq = 0;
+function buildClone() {
+  // Native clone: Ionic's (Stencil's) patched cloneNode drops slotted children.
+  const m = $("#main"), c = Node.prototype.cloneNode.call(m, true);
+  c.removeAttribute("id"); c.querySelectorAll("[id]").forEach(e => e.removeAttribute("id"));
+  // scoped components render their own insides again when the clone connects
+  c.querySelectorAll("ion-searchbar, ion-input, ion-textarea").forEach(e => e.replaceChildren());
+  c.className = "lens-clone " + m.className; c.setAttribute("aria-hidden", "true"); c.inert = true;
+  return c;
+}
+function syncLenses() {
+  const m = $("#main"), mr = m.getBoundingClientRect();
+  if (lensDirty) { lensClone = buildClone(); lensDirty = false; for (const L of lenses.values()) { L.clone.replaceWith(L.clone = Node.prototype.cloneNode.call(lensClone, true)); L.key = ""; } }
+  for (const el of lensTargets()) {
+    let L = lenses.get(el);
+    if (!el.offsetWidth || el.closest(".hidden")) continue;
+    if (!L) {
+      const wrap = Object.assign(document.createElement("div"), {className: "lens"}), bend = Object.assign(document.createElement("div"), {className: "lens-bend"});
+      const clone = Node.prototype.cloneNode.call(lensClone, true); bend.appendChild(clone); wrap.appendChild(bend); el.prepend(wrap); el.classList.add("has-lens");
+      L = {wrap, clone, id: "lens" + (++lensSeq), size: ""}; lenses.set(el, L); bend.style.filter = `url(#${L.id}) saturate(1.5) brightness(1.03)`;
+    }
+    if (L.wrap.parentNode !== el) { el.prepend(L.wrap); L.key = ""; }  // control re-rendered its content
+    const w = el.offsetWidth, h = el.offsetHeight, size = w + "x" + h;
+    if (L.size !== size) { L.size = size; lensFilter(L.id, w, h, Math.min(h / 2, parseFloat(getComputedStyle(el).borderTopLeftRadius) || 0)); }
+    const r = el.getBoundingClientRect(), s = r.width / w || 1;
+    const key = `${mr.left},${mr.top},${r.left},${r.top},${s},${m.style.transform}`;
+    if (key === L.key) continue;
+    L.key = key;
+    L.clone.style.width = m.offsetWidth + "px";
+    L.clone.style.transform = `translate(${(mr.left - r.left) / s}px, ${(mr.top - r.top) / s}px) scale(${1 / s})`;
+  }
+}
+// Experimental (not verified on iPhone Safari yet): turn on with ?lens=1, off
+// with ?lens=0; remembered on this device.
+{ const q = new URLSearchParams(location.search).get("lens"); if (q === "1" || q === "0") lsSet("lens", q); }
+if (lsGet("lens") === 1) {
+  new MutationObserver(muts => { if (muts.some(mu => !mu.target.closest?.(".lens"))) lensDirty = true; })
+    .observe($("#main"), {childList: true, subtree: true, characterData: true});
+  (function lensLoop() { if (!document.hidden) { try { syncLenses(); } catch (e) { console.warn("lens", e); } } requestAnimationFrame(lensLoop); })();
+}
+$("#tabbar").querySelectorAll("button").forEach(b => b.onclick = () => { location.hash = ""; route(b.dataset.tab); });
+// Tab bar shrinks while scrolling down, springs back when scrolling up.
+let lastY = 0;
+$("#content").addEventListener("ionScroll", e => {
+  const y = e.detail.scrollTop, dy = y - lastY; lastY = y;
+  if (y < 40 || dy < -6) $("#tabbar").classList.remove("mini"); else if (dy > 6) $("#tabbar").classList.add("mini");
+});
+// Swipe from the left edge goes back, like a native navigation stack.
+let swipe = null;
+document.addEventListener("touchstart", e => { const t = e.touches[0];
+  swipe = PUSHED.includes(current?.view) && t.clientX < 28 ? {x: t.clientX, y: t.clientY} : null; }, {passive: true});
+document.addEventListener("touchend", e => { if (!swipe) return; const t = e.changedTouches[0];
+  if (t.clientX - swipe.x > 70 && Math.abs(t.clientY - swipe.y) < 80) $("#back").click(); swipe = null; }, {passive: true});
+customElements.whenDefined("ion-textarea").then(() => $("#body").getInputElement()).then(t => {
+  t.setAttribute("autocomplete", "off"); t.setAttribute("enterkeyhint", "send"); t.setAttribute("data-form-type", "other"); });
+// Keyboard: iOS normally pans the whole page up to reveal a focused field at
+// the bottom. Instead we focus with preventScroll (page stays still) and lift
+// only the composer by the keyboard height: predicted from the last time
+// (remembered), then corrected from the visual viewport.
+const vv = window.visualViewport, root = document.documentElement;
+let fullH = 0, fullW = 0;
+function baseline() {
+  if (!vv) return innerHeight;
+  if (vv.width !== fullW) { fullW = vv.width; fullH = 0; }
+  if (!root.classList.contains("typing")) fullH = Math.max(fullH, vv.height);
+  return fullH = Math.max(fullH, vv.height);
+}
+let kbNow = 0;
+function setKb(px) { kbNow = Math.max(0, Math.round(px)); root.style.setProperty("--kb", kbNow + "px"); }
+// Messages glide with the composer instead of jumping (FLIP): note where the
+// last message is, apply the change (room under the list + scroll), measure
+// again, then animate the difference away on the composer's curve.
+async function glideContent(delta) {
+  const el = await $("#content").getScrollElement(), m = $("#main");
+  const anchor = [...m.querySelectorAll(".bubble")].pop() || m;
+  m.style.transition = "none"; m.style.transform = "";
+  const y0 = anchor.getBoundingClientRect().bottom;
+  const nearBottom = el.scrollHeight - el.scrollTop - el.clientHeight < 60;
+  const before = el.scrollTop;
+  root.style.setProperty("--kbpad", (root.classList.contains("typing") ? kbNow : 0) + "px");
+  if (delta < 0 || nearBottom) el.scrollTop = Math.max(0, before + delta);
+  const shift = y0 - anchor.getBoundingClientRect().bottom;
+  if (Math.abs(shift) > 1) {
+    m.style.transform = `translateY(${shift}px)`; void m.offsetWidth;
+    m.style.transition = "transform .42s cubic-bezier(.2,.9,.25,1)"; m.style.transform = "";
+  }
+}
+function predictedKb() { return lsGet("kbH" + Math.round(baseline())) || baseline() * 0.45; }
+function startTyping() {
+  if (root.classList.contains("typing")) return;
+  root.classList.add("typing");
+  setKb(predictedKb());
+  glideContent(kbNow);
+}
+function stopTyping() { const was = kbNow; root.classList.remove("typing"); setKb(0); glideContent(-was); }
+function onViewport() {
+  if (!vv || vv.scale > 1.01) return;
+  const full = baseline(), kb = full - vv.height;
+  if (root.classList.contains("typing") && kb > 120) {
+    const before = kbNow;
+    setKb(kb - vv.offsetTop);                 // if iOS still panned, don't lift twice
+    if (Math.abs(kbNow - before) > 2) glideContent(kbNow - before);
+    lsSet("kbH" + Math.round(full), Math.round(kb));
+  }
+}
+if (vv) { vv.addEventListener("resize", onViewport); vv.addEventListener("scroll", onViewport); baseline(); }
+// Tap on the composer: take over the focus so iOS doesn't scroll the page.
+$("#compose").addEventListener("touchend", e => {
+  const ta = $("#body textarea");
+  if (!ta || document.activeElement === ta || e.target.closest("#sendBtn")) return;
+  e.preventDefault();
+  startTyping();
+  ta.focus({preventScroll: true});
+}, {passive: false});
+document.addEventListener("focusin", e => { if (e.target.closest?.("#compose")) startTyping(); });
+document.addEventListener("focusout", e => { if (e.target.closest?.("#compose")) setTimeout(() => {
+  if (!document.activeElement?.closest?.("#compose")) stopTyping(); }, 50); });
+if (/kbdebug/.test(location.search)) {  // on-screen numbers for diagnosing on the phone
+  const d = Object.assign(document.createElement("div"), {style: "position:fixed;left:4px;top:60px;z-index:99999;font:11px monospace;background:#ff0;color:#000;padding:2px 4px;pointer-events:none"});
+  document.body.appendChild(d);
+  setInterval(() => d.textContent = `pred ${lsGet("kbH" + Math.round(fullH))} inner ${innerHeight} vv ${Math.round(vv?.height)}@${Math.round(vv?.offsetTop)} full ${fullH} kb ${getComputedStyle(root).getPropertyValue("--kb")} typing ${root.classList.contains("typing")}`, 300);
+}
+let current = null;
+// Pushed pages sit on a navigation stack (back / edge-swipe returns to where
+// you came from); tab pages reset it.
+const PUSHED = ["thread", "new", "contact", "dial"];
+let navStack = [];
+// Page changes animate like iOS: push/pop for pushed pages, a soft rise for tabs.
+const scrollMemo = {}, memoKey = (v, a) => v + "|" + (a ?? "");
+function route(view, arg, back = false) {
+  const prev = current?.view;
+  if (prev && !back) scrollMemo[memoKey(prev, current.arg)] = lastY;  // where we were, for the way back
+  if (!PUSHED.includes(view)) navStack = [];
+  else if (!back && prev && !(prev === view && current.arg === arg) && prev !== "login" && prev !== "setup") navStack.push(current);
+  const kind = !prev || view === "login" || view === "setup" || prev === "login" || prev === "setup" ? null
+    : back ? "pop" : PUSHED.includes(view) && !(prev === view && current.arg === arg) ? "push"
+    : PUSHED.includes(prev) ? "pop" : prev !== view ? "tab" : null;
+  if (!kind || !document.startViewTransition || matchMedia("(prefers-reduced-motion: reduce)").matches) return render(view, arg, back);
+  document.documentElement.dataset.vt = kind;
+  // The screen is frozen until the callback settles: tabs switch at once (data
+  // fills in after); a pushed conversation waits a moment so it slides in filled.
+  // Going back waits a little too, so the list underneath is already filled
+  // (lists also render instantly from their last copy).
+  const t = document.startViewTransition(() => { const done = render(view, arg, back);
+    return kind === "push" || kind === "pop" ? Promise.race([done, new Promise(r => setTimeout(r, kind === "pop" ? 250 : 150))]) : undefined; });
+  t.finished.finally(() => { if (document.documentElement.dataset.vt === kind) delete document.documentElement.dataset.vt; });
+}
+function render(view, arg, back = false) {
+  current = {view, arg};
+  const chat = view === "thread" || view === "new", pushed = PUSHED.includes(view), bare = view === "login" || view === "setup";
+  $("#compose").classList.toggle("hidden", !chat);
+  $("#tabs").classList.toggle("hidden", pushed || bare);
+  $("#back").classList.toggle("hidden", !pushed);
+  if (!pushed) setTab(view);
+  $("#tabbar").classList.remove("mini"); lastY = 0;
+  clearTimeout(statusTimer); statusGen++;
+  toolbar();
+  $("#main").innerHTML = ""; $("#main").classList.remove("fill");
+  $("#content").scrollToTop?.(0);
+  const done = ({login, setup, threads, thread, newmsg: newMsg, calls, spam, status, settings, contact, dial}[view === "new" ? "newmsg" : view])(arg);
+  const y = back ? scrollMemo[memoKey(view, arg)] : 0;
+  if (y) { const go = () => { $("#content").scrollToPoint(0, y, 0); lastY = y; }; go(); Promise.resolve(done).then(go); }
+  return done;
+}
+$("#back").onclick = () => { location.hash = ""; const p = navStack.pop() || {view: "threads"}; route(p.view, p.arg, true); };
+
+// ------------------------------------------------------------- passkeys --
+const b64d = s => Uint8Array.from(atob(s.replace(/-/g, "+").replace(/_/g, "/").padEnd(Math.ceil(s.length / 4) * 4, "=")), c => c.charCodeAt(0)).buffer;
+const b64e = b => btoa(String.fromCharCode(...new Uint8Array(b))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+function credJSON(c) {
+  const r = c.response, o = {id: c.id, rawId: b64e(c.rawId), type: c.type, clientExtensionResults: c.getClientExtensionResults?.() || {},
+    response: {clientDataJSON: b64e(r.clientDataJSON)}};
+  if (c.authenticatorAttachment) o.authenticatorAttachment = c.authenticatorAttachment;
+  if (r.attestationObject) { o.response.attestationObject = b64e(r.attestationObject); o.response.transports = r.getTransports?.() || []; }
+  if (r.authenticatorData) { o.response.authenticatorData = b64e(r.authenticatorData); o.response.signature = b64e(r.signature);
+    if (r.userHandle) o.response.userHandle = b64e(r.userHandle); }
+  return o;
+}
+let appState = {};
+const passkeyUsable = () => !!window.PublicKeyCredential && window.isSecureContext && location.hostname === appState.passkey_rp;
+// Options are fetched ahead of the tap: iOS only lets WebAuthn start
+// directly inside a user gesture.
+let pkLoginOpts = null;
+async function prefetchPasskeyLogin() {
+  try { pkLoginOpts = await api("/api/passkey/login-options", {method: "POST"}); pkLoginOpts._t = Date.now(); } catch { pkLoginOpts = null; }
+}
+async function passkeyLogin() {
+  const o = pkLoginOpts; pkLoginOpts = null;
+  if (!o || Date.now() - o._t > 240000) { toast("请再点一次", "dark"); return prefetchPasskeyLogin(); }
+  try {
+    const cred = await navigator.credentials.get({publicKey: {challenge: b64d(o.challenge), rpId: o.rpId, timeout: o.timeout,
+      userVerification: o.userVerification, allowCredentials: (o.allowCredentials || []).map(c => ({...c, id: b64d(c.id)}))}});
+    await api("/api/passkey/login", {method: "POST", body: JSON.stringify({credential: credJSON(cred)})});
+    start();
+  } catch (e) { toast(e.name === "NotAllowedError" ? "已取消" : e.message, e.name === "NotAllowedError" ? "dark" : "danger"); prefetchPasskeyLogin(); }
+}
+function login() {
+  setTitle("登录");
+  const pk = passkeyUsable();
+  const pkBtn = `<ion-button expand="block" id="pk" style="flex:1"${appState.has_passkeys ? "" : ' fill="outline"'}><ion-icon slot="start" name="finger-print"></ion-icon>使用通行密钥登录</ion-button>`;
+  $("#main").innerHTML = `<div class="login-hero"><ion-icon name="chatbubbles" color="primary"></ion-icon><h2>国内号码</h2></div>
+    ${pk && appState.has_passkeys ? `<div class="btnrow">${pkBtn}</div><p class="hint" style="text-align:center">或者用密码登录</p>` : ""}
+    <ion-list inset><ion-item><ion-input id="pw" type="password" label="密码" label-placement="floating" autocomplete="current-password"></ion-input></ion-item></ion-list>
+    <div class="btnrow"><ion-button expand="block" id="go" style="flex:1"${pk && appState.has_passkeys ? ' fill="outline"' : ""}>登录</ion-button></div>
+    ${pk && !appState.has_passkeys ? `<div class="btnrow">${pkBtn}</div><p class="hint" style="text-align:center">登录后可以在“设置 → 通行密钥”里添加，以后用面容 ID 一键登录。</p>` : ""}`;
+  const go = async () => { try { await api("/api/login", {method: "POST", body: JSON.stringify({password: $("#pw").value})}); start(); }
+                           catch (e) { toast(e.message, "danger"); } };
+  $("#go").onclick = go; $("#pw").addEventListener("keydown", e => e.key === "Enter" && go());
+  if (pk) { $("#pk").onclick = passkeyLogin; prefetchPasskeyLogin(); }
+}
+function prompt2(header, message, inputs, okText) {  // ion-alert with inputs -> values or null
+  return new Promise(res => {
+    const a = Object.assign(document.createElement("ion-alert"), {header, message, inputs,
+      buttons: [{text: "取消", role: "cancel"}, {text: okText, role: "confirm"}]});
+    document.body.appendChild(a);
+    a.addEventListener("didDismiss", e => { a.remove(); res(e.detail.role === "confirm" ? e.detail.data.values : null); });
+    a.present();
+  });
+}
+async function addPasskey() {
+  const v = await prompt2("添加通行密钥", "先输入当前登录密码确认是你本人。", [
+    {name: "password", type: "password", placeholder: "当前登录密码"},
+    {name: "name", type: "text", placeholder: "名称，如 iPhone", value: /iPad/.test(navigator.userAgent) ? "iPad" : /iPhone/.test(navigator.userAgent) ? "iPhone" : "电脑"}], "下一步");
+  if (!v) return;
+  let o;
+  try { o = await api("/api/passkey/register-options", {method: "POST", body: JSON.stringify({password: v.password})}); }
+  catch (e) { return toast(e.message, "danger"); }
+  // Second tap so create() runs inside a fresh user gesture (required on iOS).
+  const a = Object.assign(document.createElement("ion-alert"), {header: "密码正确", message: "点“创建”，然后用面容 ID / 触控 ID 确认。",
+    buttons: [{text: "取消", role: "cancel"}, {text: "创建", handler: () => { createPasskey(o, v.name); }}]});
+  document.body.appendChild(a); a.addEventListener("didDismiss", () => a.remove()); a.present();
+}
+async function createPasskey(o, name) {
+  try {
+    const cred = await navigator.credentials.create({publicKey: {...o, challenge: b64d(o.challenge), user: {...o.user, id: b64d(o.user.id)},
+      excludeCredentials: (o.excludeCredentials || []).map(c => ({...c, id: b64d(c.id)}))}});
+    await api("/api/passkey/register", {method: "POST", body: JSON.stringify({credential: credJSON(cred), name})});
+    toast("通行密钥已添加", "success"); settings();
+  } catch (e) {
+    toast(e.name === "InvalidStateError" ? "这台设备已经有通行密钥了" : e.name === "NotAllowedError" ? "已取消" : e.message,
+          e.name === "NotAllowedError" ? "dark" : "danger");
+  }
+}
+function setup(allowed) {
+  setTitle("首次设置");
+  if (!allowed) { $("#main").innerHTML = empty("lock-closed-outline", "还没有设置密码。为安全起见，首次设置只能在家里局域网里打开这个页面完成。"); return; }
+  $("#main").innerHTML = `<p class="hint" style="margin-top:20px">给这个页面设一个登录密码（至少 10 位）。</p>
+    <ion-list inset><ion-item><ion-input id="pw" type="password" label="新密码" label-placement="floating" autocomplete="new-password"></ion-input></ion-item>
+    <ion-item><ion-input id="pw2" type="password" label="再输一次" label-placement="floating" autocomplete="new-password"></ion-input></ion-item></ion-list>
+    <div class="btnrow"><ion-button expand="block" id="go" style="flex:1">保存</ion-button></div>`;
+  $("#go").onclick = async () => {
+    if ($("#pw").value !== $("#pw2").value) return toast("两次不一致", "danger");
+    try { await api("/api/setup", {method: "POST", body: JSON.stringify({password: $("#pw").value})}); start(); }
+    catch (e) { toast(e.message, "danger"); }
+  };
+}
+
+// ------------------------------------------------------------------ SMS --
+const hue = s => [...String(s)].reduce((h, c) => (h * 31 + c.charCodeAt(0)) % 360, 7);
+const KIND_ICON = {mobile: "person", landline: "call", service: "business", bulk: "megaphone", hotline: "headset",
+  emergency: "alert-circle", foreign: "globe", hidden: "eye-off"};
+const avatar = (n, i) => `<div slot="start" class="avatar" style="--h:${hue(i?.key || n)}"><ion-icon name="${KIND_ICON[i?.kind] || "person"}"></ion-icon></div>`;
+const where = i => i ? [i.loc, i.carrier && !i.name ? i.carrier.replace("中国", "") : ""].filter(Boolean).join(" ") : "";
+const BAD_MARK = /骚扰|诈骗|欺诈|营销|推销|广告|催收|中介|贷款|保险|理财|违规/;
+const markChip = i => i?.mark ? `<span class="tagchip ${BAD_MARK.test(i.mark) ? "bad" : "info"}">${esc(i.mark)}</span>` : "";
+const tagOf = i => !i ? "" : i.tag ? `<span class="tagchip">${esc(i.tag)}</span>` : i.blocked ? `<span class="tagchip bad">已拉黑</span>` : markChip(i);
+// "131 4750 4896 广东 深圳" / "95588 工商银行" + the user's tag
+const numHtml = (n, i) => `${esc(i?.display || n || "隐藏号码")}${i?.name ? `<span class="nm">${esc(i.name)}</span>` : where(i) ? `<span class="loc">${esc(where(i))}</span>` : ""}${tagOf(i)}`;
+// Calling: either right here in the page (WebRTC to Asterisk) or hand the
+// number to Linphone (sip-linphone: makes it dial at once, native call screen).
+const cleanNum = n => String(n || "").replace(/[^0-9+*#]/g, "");
+function linphoneCall(num) { location.href = `sip-linphone:${num.replace(/#/g, "%23")}@${appState.sip_domain}`; }
+function callNumber(n, label = "") {
+  const num = cleanNum(n);
+  if (!num) return toast("没有可拨打的号码", "danger");
+  const a = Object.assign(document.createElement("ion-action-sheet"), {header: `拨打 ${label || num}`, buttons: [
+    {text: "在网页里直接拨打", icon: "globe-outline", handler: () => { webCall(num, label); }},
+    {text: "用 Linphone 拨打", icon: "phone-portrait-outline", handler: () => { linphoneCall(num); }},
+    {text: "取消", role: "cancel"}]});
+  document.body.appendChild(a); a.addEventListener("didDismiss", () => a.remove()); a.present();
+}
+
+// ------------------------------------------------------------- web phone --
+let phone = {ua: null, cfg: null, session: null, timer: 0, wake: null};
+const loadScript = src => new Promise((res, rej) => { if (window.JsSIP) return res();
+  const el = Object.assign(document.createElement("script"), {src, onload: res, onerror: () => rej(new Error("电话组件加载失败"))}); document.head.appendChild(el); });
+async function webUA() {
+  if (phone.ua && phone.ua.isConnected()) return phone.ua;
+  await loadScript("/vendor/jssip/jssip.min.js");
+  phone.cfg = await api("/api/webphone");
+  if (phone.ua) { try { phone.ua.stop(); } catch {} }
+  const ua = new JsSIP.UA({sockets: [new JsSIP.WebSocketInterface(phone.cfg.ws)], uri: phone.cfg.uri, password: phone.cfg.password,
+    register: false, session_timers: false, user_agent: "sms-gateway-web"});
+  await new Promise((res, rej) => {
+    const t = setTimeout(() => rej(new Error("连不上电话服务")), 8000);
+    ua.once("connected", () => { clearTimeout(t); res(); });
+    ua.start();
+  });
+  return phone.ua = ua;
+}
+const FAIL = {Busy: "对方忙", Rejected: "对方拒接", Unavailable: "暂时无法接通", "Not Found": "号码不存在", "Address Incomplete": "号码不完整",
+  "Connection Error": "连接中断", "Request Timeout": "请求超时", "User Denied Media Access": "没有麦克风权限", Canceled: "已取消",
+  "No Answer": "无人接听", "Authentication Error": "认证失败", "WebRTC Error": "浏览器不支持", "RTP Timeout": "网络中断"};
+function cuShow(num, label, info) {
+  $("#cuNum").textContent = label || num; $("#cuNum").dataset.num = num; $("#cuInfo").textContent = info || ""; $("#cuStatus").textContent = "正在连接…";
+  $("#cuPad").classList.add("hidden"); $("#cuMute").classList.remove("on"); $("#cuKeys").classList.remove("on");
+  const ui = $("#callui"); ui.classList.remove("hidden", "closing");
+}
+function cuClose(msg) {
+  clearInterval(phone.timer); phone.session = null;
+  try { phone.wake?.release(); } catch {} phone.wake = null;
+  $("#cuStatus").textContent = msg;
+  setTimeout(() => { const ui = $("#callui"); ui.classList.add("closing"); setTimeout(() => ui.classList.add("hidden"), 340); }, 1100);
+}
+async function webCall(num, label = "") {
+  if (phone.session) return toast("已经在通话中", "danger");
+  const audio = $("#remoteAudio"); audio.play().catch(() => {});        // unlock audio inside the tap (iOS)
+  cuShow(num, label, "");
+  if (!/[*#]/.test(num)) api("/api/number?n=" + encodeURIComponent(num)).then(d => { if (!label && d.info.name) $("#cuNum").textContent = d.info.name;
+    $("#cuInfo").textContent = [d.info.display !== (label || num) ? d.info.display : "", d.info.loc, d.info.carrier].filter(Boolean).join(" · "); }).catch(() => {});
+  try { phone.wake = await navigator.wakeLock?.request("screen"); } catch {}  // a locked screen would suspend the page
+  let ua;
+  try { ua = await webUA(); } catch (e) { return cuClose("连接失败：" + e.message); }
+  let s;
+  try {
+    s = ua.call(`sip:${num.replace(/#/g, "%23")}@${phone.cfg.domain}`, {mediaConstraints: {audio: true, video: false},
+      pcConfig: {iceServers: phone.cfg.ice}, rtcOfferConstraints: {offerToReceiveAudio: true, offerToReceiveVideo: false}});
+  } catch (e) { return cuClose("拨打失败：" + e.message); }
+  phone.session = s;
+  s.on("icecandidate", e => { if (e.candidate?.type === "srflx") e.ready(); });  // don't wait for slow ICE gathering
+  s.connection?.addEventListener("track", e => { audio.srcObject = e.streams[0]; audio.play().catch(() => {}); });
+  s.on("sending", () => $("#cuStatus").textContent = "正在呼叫…");
+  s.on("progress", () => $("#cuStatus").textContent = "对方响铃中…");
+  s.on("confirmed", () => { const t0 = Date.now();
+    const tick = () => { const sec = Math.floor((Date.now() - t0) / 1000); $("#cuStatus").textContent = `${String(Math.floor(sec / 60)).padStart(2, "0")}:${String(sec % 60).padStart(2, "0")}`; };
+    tick(); phone.timer = setInterval(tick, 1000); });
+  s.on("ended", () => cuClose("通话结束"));
+  s.on("failed", e => cuClose(FAIL[e.cause] || ("未接通：" + e.cause)));
+}
+$("#cuHang").onclick = () => { if (phone.session) { try { phone.session.terminate(); } catch {} } else cuClose(""); };
+$("#cuMute").onclick = () => { const s = phone.session; if (!s) return; const on = !$("#cuMute").classList.contains("on");
+  on ? s.mute({audio: true}) : s.unmute({audio: true}); $("#cuMute").classList.toggle("on", on); };
+$("#cuKeys").onclick = () => { $("#cuPad").classList.toggle("hidden"); $("#cuKeys").classList.toggle("on"); };
+$("#cuPad").querySelectorAll("button").forEach(b => b.onclick = () => { try { phone.session?.sendDTMF(b.dataset.d, {transportType: "RFC2833"}); } catch {} });
+$("#cuLin").onclick = () => { const num = $("#cuNum").dataset.num; if (phone.session) { try { phone.session.terminate(); } catch {} } if (num) setTimeout(() => linphoneCall(num), 400); };
+async function threads() {
+  setTitle("短信");
+  toolbar([{icon: "create-outline", label: "写短信", on: () => route("new")}]);
+  $("#main").innerHTML = `<ion-searchbar id="q" placeholder="搜索号码或内容" debounce="300"></ion-searchbar><div id="list"></div>`;
+  $("#q").addEventListener("ionInput", async e => {
+    const q = (e.detail.value || "").trim(); if (!q) return renderThreads(await api("/api/threads"));
+    renderMsgs(await api("/api/messages?q=" + encodeURIComponent(q)));
+  });
+  if (threadsCache) renderThreads(threadsCache);
+  const rows = await api("/api/threads");
+  if (current.view !== "threads" || ($("#q")?.value || "").trim()) return;
+  if (JSON.stringify(rows) !== JSON.stringify(threadsCache)) renderThreads(rows);
+  threadsCache = rows;
+}
+let threadsCache = null;
+function bindRows() {
+  $("#list").querySelectorAll("ion-item[data-n]").forEach(el => el.onclick = () => { location.hash = "n=" + el.dataset.n; route("thread", el.dataset.n); });
+}
+function renderThreads(rows) {
+  $("#list").innerHTML = rows.length ? `<ion-list inset>${rows.map(r => `<ion-item button detail="false" data-n="${esc(r.number)}">${avatar(r.number, r.info)}
+    <ion-label><h2>${numHtml(r.number, r.info)}</h2><p>${r.direction === "out" ? "我：" : ""}${esc(r.body)}</p></ion-label>
+    <div slot="end" class="end"><ion-note>${fmt(r.ts)}</ion-note><ion-badge color="light">${r.n}</ion-badge></div></ion-item>`).join("")}</ion-list>`
+    : empty("chatbubbles-outline", "还没有短信");
+  bindRows();
+}
+function renderMsgs(rows) {
+  $("#list").innerHTML = rows.length ? `<ion-list inset>${rows.map(r => `<ion-item button detail="false" data-n="${esc(r.number)}">${avatar(r.number)}
+    <ion-label><h2>${esc(r.number)}</h2><p>${esc(r.body)}</p></ion-label><ion-note slot="end">${fmt(r.ts)}</ion-note></ion-item>`).join("")}</ion-list>`
+    : empty("search-outline", "没有找到");
+  bindRows();
+}
+const sendState = {queued: ["time-outline", "发送中", ""], sent: ["checkmark", "已发出", ""], delivered: ["checkmark-done", "已送达", "success"], failed: ["alert-circle", "发送失败", "danger"]};
+async function thread(number) {
+  setTitle(number);
+  api("/api/number?n=" + encodeURIComponent(number)).then(d => { if (current.view === "thread" && current.arg === number)
+    setTitle(d.info.name || d.info.display, [d.info.name ? d.info.display : "", where(d.info), d.info.tag].filter(Boolean).join(" · ")); }).catch(() => {});
+  toolbar([
+    {icon: "call-outline", label: "打电话", on: () => callNumber(number, $("#title").textContent)},
+    {icon: "information-circle-outline", label: "号码详情", on: () => route("contact", number)},
+    {icon: "trash-outline", label: "删除会话", color: "danger", on: async () => {
+      if (!await ask("删除整个会话？", `和 ${number} 的全部短信都会删除，无法恢复。`, "删除")) return;
+      try { await api("/api/delete-thread", {method: "POST", body: JSON.stringify({number})}); toast("已删除"); location.hash = ""; route("threads"); } catch (e) { toast(e.message, "danger"); } }},
+  ]);
+  $("#main").innerHTML = `<div class="chat" id="msgs"></div>`; $("#main").classList.add("fill");
+  const rows = (await api("/api/messages?limit=200&number=" + encodeURIComponent(number))).reverse();
+  $("#msgs").innerHTML = rows.map(r => {
+    const c = r.direction === "in" ? codeOf(r.body) : "", st = sendState[r.status];
+    return `<div class="bubble ${r.direction}${r.spam ? " spam" : ""}">${esc(r.body)}${c ? `<div><ion-chip class="code" data-c="${c}" color="primary"><ion-icon name="copy-outline"></ion-icon><ion-label>${c}</ion-label></ion-chip></div>` : ""}${r.spam ? `<div class="spamnote"><ion-icon name="shield-checkmark"></ion-icon>已拦截：${esc(r.spam_reason)}</div>` : ""}</div>
+    <div class="meta ${r.direction === "out" ? "r" : ""}"><span>${fmt(r.ts)}</span>${r.direction === "out" && st ? `<ion-icon name="${st[0]}"${st[2] ? ` color="${st[2]}"` : ""}></ion-icon><span>${st[1]}${r.status === "failed" && r.detail ? "：" + esc(r.detail) : ""}</span>` : ""}
+      <ion-icon class="del" name="trash-outline" data-id="${r.id}" role="button" aria-label="删除这条"></ion-icon></div>`; }).join("") || empty("chatbubble-outline", "没有短信");
+  $("#msgs").querySelectorAll(".del").forEach(el => el.onclick = async () => {
+    if (!await ask("删除这条短信？", "删除后无法恢复。", "删除")) return;
+    try { await api("/api/delete-messages", {method: "POST", body: JSON.stringify({ids: [Number(el.dataset.id)]})}); thread(number); } catch (e) { toast(e.message, "danger"); }
+  });
+  $("#msgs").querySelectorAll(".code").forEach(el => el.onclick = () => copyText(el.dataset.c).then(() => toast(`已复制 ${el.dataset.c}`, "success")));
+  setTimeout(() => $("#content").scrollToBottom(0), 50);
+  $("#sendBtn").onclick = () => doSend(number);
+}
+function newMsg() {
+  setTitle("写短信");
+  $("#main").innerHTML = `<ion-list inset style="margin-top:16px"><ion-item><ion-input id="to" label="收件人" label-placement="stacked" inputmode="tel" placeholder="13800138000 或 +81…"></ion-input></ion-item></ion-list>
+    <p class="hint">国内手机号直接填；国内座机带区号（0 开头）；其他国家用 + 国家码。漫游发送按国际漫游资费计费。</p>`;
+  $("#sendBtn").onclick = () => doSend($("#to").value || "");
+}
+async function doSend(number) {
+  const body = ($("#body").value || "").trim(); if (!body) return;
+  $("#sendBtn").disabled = true;
+  try { const r = await api("/api/send", {method: "POST", body: JSON.stringify({number, body})});
+        $("#body").value = ""; location.hash = "n=" + r.number; route("thread", r.number); }
+  catch (e) { toast("没有发出：" + e.message, "danger"); }
+  finally { $("#sendBtn").disabled = false; }
+}
+
+// ---------------------------------------------------------------- calls --
+const callState = {blocked: ["已拦截", "medium"], ringing: ["响铃中", "primary"], answered: ["已接通", "success"], missed: ["未接", "danger"],
+  busy: ["占线", "warning"], noanswer: ["无人接听", "warning"], failed: ["失败", "danger"], congestion: ["线路忙", "warning"],
+  chanunavail: ["不可用", "danger"], cancel: ["已取消", "medium"]};
+function drawCalls(rows) {
+  $("#main").innerHTML = rows.length ? `<ion-list inset style="margin-top:16px">${rows.map(r => { const [text, color] = callState[r.status] || [r.status, "medium"];
+    const icon = r.status === "blocked" ? "ban" : r.direction === "in" ? "arrow-down-circle" : "arrow-up-circle";
+    return `<ion-item button detail="false" data-n="${esc(r.number)}"><ion-icon slot="start" name="${icon}" color="${color}" style="font-size:30px"></ion-icon>
+      <ion-label><h2${r.status === "missed" ? ' class="c-danger"' : ""}>${numHtml(r.number, r.info)}</h2>
+      <p>${r.direction === "in" ? "来电" : "去电"} · ${esc(text)}${r.billsec ? ` · ${Math.floor(r.billsec / 60)}分${r.billsec % 60}秒` : ""}</p></ion-label>
+      <ion-note slot="end">${fmt(r.started)}</ion-note></ion-item>`; }).join("")}</ion-list>` : empty("call-outline", "还没有通话记录");
+  $("#main").querySelectorAll("ion-item[data-n]").forEach(el => el.onclick = () => route("contact", el.dataset.n));
+}
+let callsCache = null;
+async function renderCalls() {
+  if (callsCache) drawCalls(callsCache);
+  const rows = await api("/api/calls");
+  if (current.view !== "calls") return;
+  if (JSON.stringify(rows) !== JSON.stringify(callsCache)) drawCalls(rows);
+  callsCache = rows;
+}
+async function calls() {
+  setTitle("通话");
+  toolbar([{icon: "keypad", label: "拨号", on: () => route("dial")}]);
+  return renderCalls();
+}
+
+// ---------------------------------------------------------- number page --
+const TAGS = ["骚扰电话", "诈骗", "广告推销", "快递外卖", "房产中介", "金融理财", "招聘猎头", "客服", "熟人"];
+async function contact(number) {
+  setTitle("号码详情");
+  const d = await api("/api/number?n=" + encodeURIComponent(number)), i = d.info, hidden = i.kind === "hidden";
+  const rows = d.calls.map(r => { const [text, color] = callState[r.status] || [r.status, "medium"];
+    const icon = r.status === "blocked" ? "ban" : r.direction === "in" ? "arrow-down-circle" : "arrow-up-circle";
+    return `<ion-item><ion-icon slot="start" name="${icon}" color="${color}" style="font-size:26px"></ion-icon>
+      <ion-label><h3>${r.direction === "in" ? "来电" : "去电"} · ${esc(text)}</h3>${r.billsec ? `<p>通话 ${Math.floor(r.billsec / 60)}分${r.billsec % 60}秒</p>` : ""}</ion-label>
+      <ion-note slot="end">${fmt(r.started)}</ion-note></ion-item>`; }).join("");
+  $("#main").innerHTML = `
+    <div class="contact-hero">
+      <div class="big-avatar" style="--h:${hue(i.key || number)}"><ion-icon name="${KIND_ICON[i.kind] || "person"}"></ion-icon></div>
+      <h1>${esc(i.name || i.display)}</h1>
+      ${i.name ? `<div class="sub">${esc(i.display)}</div>` : ""}
+      ${i.loc || i.carrier ? `<div class="sub">${esc([i.loc, i.carrier].filter(Boolean).join(" · "))}</div>` : ""}
+      <div class="chips"><span class="tagchip cat">${esc(i.category)}</span>${i.tag ? `<span class="tagchip">${esc(i.tag)}</span>` : ""}
+        ${markChip(i)}${i.blocked ? '<span class="tagchip bad">已拉黑</span>' : ""}${i.allowed ? '<span class="tagchip ok">白名单</span>' : ""}</div>
+      ${i.mark ? `<div class="mark-note">百度号码标记：${esc(i.mark)}（${esc(i.mark_source || "用户标记")}）${i.mark_note ? "，" + esc(i.mark_note) : ""}<a href="#" id="remark">刷新</a></div>`
+        : ["mobile", "landline"].includes(i.kind) && !i.name ? `<div class="mark-note">百度号码标记：无<a href="#" id="remark">刷新</a></div>` : ""}
+      <div class="actions">
+        <button class="act glass" id="aCall"${hidden ? " disabled" : ""}><ion-icon name="call"></ion-icon>拨打</button>
+        <button class="act glass" id="aSms"${hidden ? " disabled" : ""}><ion-icon name="chatbubble"></ion-icon>短信</button>
+        <button class="act glass" id="aTag"${hidden ? " disabled" : ""}><ion-icon name="pricetag"></ion-icon>标记</button>
+        <button class="act glass${i.blocked ? "" : " danger"}" id="aBlock"${hidden ? " disabled" : ""}><ion-icon name="${i.blocked ? "checkmark-circle" : "ban"}"></ion-icon>${i.blocked ? "取消拉黑" : "拉黑"}</button>
+      </div>
+    </div>
+    <ion-list-header><ion-label>通话记录 ${d.calls.length ? `<ion-badge color="medium">${d.calls.length}</ion-badge>` : ""}</ion-label></ion-list-header>
+    ${rows ? `<ion-list inset>${rows}</ion-list>` : `<p class="hint">和这个号码还没有通话。</p>`}
+    ${hidden ? "" : `<ion-list inset><ion-item button detail="true" id="toSms"><ion-icon slot="start" name="chatbubbles-outline" color="primary"></ion-icon>
+      <ion-label>${d.sms_count ? `短信 ${d.sms_count} 条` : "发短信"}</ion-label>${d.sms_last ? `<ion-note slot="end">${fmt(d.sms_last)}</ion-note>` : ""}</ion-item></ion-list>`}
+    <p class="hint">归属地来自离线号段库（2025年2月）；百度号码标记会联网查询（结果缓存 30 天）；你自己的“标记”只保存在 NAS 上。</p>`;
+  if (hidden) return;
+  if ($("#remark")) $("#remark").onclick = async e => { e.preventDefault(); $("#remark").textContent = "查询中…";
+    try { await api("/api/number?refresh=1&n=" + encodeURIComponent(number)); contact(number); } catch (err) { toast(err.message, "danger"); } };
+  const openSms = () => route("thread", d.sms_number);
+  $("#aCall").onclick = () => callNumber(d.dial, i.name || i.display);
+  $("#aSms").onclick = openSms; $("#toSms").onclick = openSms;
+  $("#aTag").onclick = async () => {
+    const pick = await new Promise(res => {
+      const a = Object.assign(document.createElement("ion-alert"), {header: "标记这个号码",
+        inputs: [...TAGS, "自定义…"].map(t => ({type: "radio", label: t, value: t, checked: t === i.tag})),
+        buttons: [...(i.tag ? [{text: "清除标记", role: "destructive", handler: () => res("")}] : []), {text: "取消", role: "cancel"}, {text: "确定", role: "confirm"}]});
+      document.body.appendChild(a);
+      a.addEventListener("didDismiss", e => { a.remove(); res(e.detail.role === "confirm" ? e.detail.data?.values : e.detail.role === "destructive" ? "" : null); });
+      a.present();
+    });
+    if (pick === null || pick === undefined) return;
+    let tag = pick;
+    if (pick === "自定义…") { const v = await prompt2("自定义标记", "最多 20 个字", [{name: "t", type: "text", placeholder: "比如：物业", value: i.tag}], "保存"); if (!v) return; tag = v.t; }
+    try { await api("/api/number-tag", {method: "POST", body: JSON.stringify({number: i.key, tag})}); contact(number); } catch (e) { toast(e.message, "danger"); }
+  };
+  $("#aBlock").onclick = async () => {
+    if (i.blocked) {
+      try { await api("/api/unblock-number", {method: "POST", body: JSON.stringify({number})}); toast("已取消拉黑", "success"); contact(number); } catch (e) { toast(e.message, "danger"); }
+      return;
+    }
+    if (!await ask("拉黑这个号码？", `${i.display} 以后的短信进“拦截”，来电直接拒接。`, "拉黑")) return;
+    try { await api("/api/block-number", {method: "POST", body: JSON.stringify({number})}); toast("已拉黑"); contact(number); } catch (e) { toast(e.message, "danger"); }
+  };
+}
+
+// ---------------------------------------------------------------- dialer --
+function dial(start = "") {
+  setTitle("拨号");
+  const KEYS = [["1", ""], ["2", "ABC"], ["3", "DEF"], ["4", "GHI"], ["5", "JKL"], ["6", "MNO"], ["7", "PQRS"], ["8", "TUV"], ["9", "WXYZ"], ["*", ""], ["0", "+"], ["+", ""]];
+  $("#main").innerHTML = `<div class="dialer"><div class="dial-num" id="dn"></div><div class="dial-info" id="di"></div>
+    <div class="keys">${KEYS.map(([k, s]) => k ? `<button class="key glass" data-k="${k}"><b>${k}</b><small>${s}</small></button>` : "<span></span>").join("")}</div>
+    <div class="dial-row"><span></span><button class="callbtn" id="dc" aria-label="拨打"><ion-icon name="call"></ion-icon></button>
+      <button class="key-del" id="dd" aria-label="删除"><ion-icon name="backspace-outline"></ion-icon></button></div></div>`;
+  let num = start, seq = 0, t;
+  const show = () => {
+    $("#dn").textContent = num; $("#dc").disabled = num.replace(/[^0-9*]/g, "").length < 3;
+    clearTimeout(t); const my = ++seq;
+    if (num.replace(/\D/g, "").length < 3) { $("#di").textContent = ""; return; }
+    if (/[*#]/.test(num)) { $("#di").textContent = num === "*43" ? "回声测试（免费，听到自己的声音说明通话音频正常）" : ""; return; }
+    t = setTimeout(async () => { try { const d = await api("/api/number?n=" + encodeURIComponent(num)); if (my !== seq) return;
+      const i = d.info; $("#di").textContent = [i.name, i.loc, i.carrier, i.category, i.tag].filter(Boolean).join(" · "); } catch {} }, 250);
+  };
+  $("#main").querySelectorAll(".key").forEach(b => b.onclick = () => { if (num.length < 20) num += b.dataset.k; show(); });
+  $("#dd").onclick = () => { num = num.slice(0, -1); show(); };
+  $("#dc").onclick = () => callNumber(num);
+  show();
+}
+
+// --------------------------------------------------------------- blocked --
+async function spam() {
+  setTitle("拦截");
+  const d = await api("/api/spam");
+  const msgs = d.messages.map(r => `<ion-item><div class="spamrow">
+      <div class="top"><b>${numHtml(r.number, r.info)}</b><ion-badge color="warning">${esc(r.spam_reason)}</ion-badge><ion-note>${fmt(r.ts)}</ion-note></div>
+      <div class="body">${esc(r.body)}</div>
+      <ion-button size="small" fill="outline" data-id="${r.id}"><ion-icon slot="start" name="checkmark-circle-outline"></ion-icon>不是垃圾</ion-button>
+      <ion-button size="small" fill="clear" color="danger" data-del="${r.id}"><ion-icon slot="start" name="trash-outline"></ion-icon>删除</ion-button></div></ion-item>`).join("");
+  const calls = d.calls.map(r => `<ion-item button detail="false" data-n="${esc(r.number)}"><ion-icon slot="start" name="ban" color="medium" style="font-size:28px"></ion-icon>
+      <ion-label><h2>${numHtml(r.number, r.info)}</h2><p>已拒接，未响铃</p></ion-label><ion-note slot="end">${fmt(r.started)}</ion-note></ion-item>`).join("");
+  $("#main").innerHTML = `
+    <ion-list-header><ion-label>被拦截的短信 ${d.messages.length ? `<ion-badge color="medium">${d.messages.length}</ion-badge>` : ""}</ion-label>${msgs ? '<ion-button id="clr" color="danger">全部清空</ion-button>' : ""}</ion-list-header>
+    ${msgs ? `<ion-list inset>${msgs}</ion-list>` : empty("shield-checkmark-outline", "没有被拦截的短信")}
+    <ion-list-header><ion-label>被拒接的来电 ${d.calls.length ? `<ion-badge color="medium">${d.calls.length}</ion-badge>` : ""}</ion-label></ion-list-header>
+    ${calls ? `<ion-list inset>${calls}</ion-list>` : empty("call-outline", "没有被拒接的来电")}
+    <p class="hint">拦截规则在“设置”里改。点“不是垃圾”会恢复这个号码的所有短信，并把它加入白名单。</p>`;
+  const clr = $("#clr");
+  if (clr) clr.onclick = async () => {
+    if (!await ask("清空被拦截的短信？", `全部 ${d.messages.length} 条都会删除，无法恢复。`, "全部清空")) return;
+    try { await api("/api/clear-spam", {method: "POST"}); toast("已清空"); spam(); } catch (e) { toast(e.message, "danger"); } };
+  $("#main").querySelectorAll("ion-button[data-del]").forEach(b => b.onclick = async () => {
+    if (!await ask("删除这条短信？", "删除后无法恢复。", "删除")) return;
+    try { await api("/api/delete-messages", {method: "POST", body: JSON.stringify({ids: [Number(b.dataset.del)]})}); spam(); } catch (e) { toast(e.message, "danger"); } });
+  $("#main").querySelectorAll("ion-button[data-id]").forEach(b => b.onclick = async () => {
+    try { await api("/api/not-spam", {method: "POST", body: JSON.stringify({id: Number(b.dataset.id)})}); toast("已恢复，并加入白名单", "success"); spam(); } catch (e) { toast(e.message, "danger"); } });
+  $("#main").querySelectorAll("ion-item[data-n]").forEach(el => el.onclick = () => route("contact", el.dataset.n));
+}
+
+// ---------------------------------------------------------------- status --
+let statusTimer = 0, statusGen = 0;  // gen: drop polls from a status page we already left
+const gb = b => (b / 1073741824).toFixed(b >= 107374182400 ? 0 : 1) + " GB";
+const upText = s => { const d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600), m = Math.floor(s % 3600 / 60);
+  return (d ? d + " 天 " : "") + (d || h ? h + " 小时 " : "") + m + " 分"; };
+const SVC_ICON = {modem: "hardware-chip-outline", asterisk: "call-outline", flexisip: "phone-portrait-outline", bark: "notifications-outline", backup: "archive-outline"};
+const meterItem = (icon, label, frac, text, level, sub = "") => `<ion-item><ion-icon slot="start" name="${icon}" color="${COLOR[level]}"></ion-icon>
+  <div class="meter"><div class="top"><b>${label}</b><span class="c-${COLOR[level]}">${text}</span></div>
+  <ion-progress-bar value="${Math.max(0.02, Math.min(1, frac))}" color="${COLOR[level]}"></ion-progress-bar>${sub ? `<div class="sub">${sub}</div>` : ""}</div></ion-item>`;
+// 4G module detail: read by asterisk/modemstat.sh from the module's spare AT port every 30 s.
+function moduleList(mx) {
+  if (!mx) return "";
+  const c = mx.cell;
+  const rows = [];
+  if (c) {
+    rows.push(`<ion-item><ion-icon slot="start" name="radio-outline" color="primary"></ion-icon>
+      <ion-label>频段<p>${esc(mx.operator || "")} ${esc(c.plmn)} · LTE ${esc(c.duplex)}</p></ion-label>
+      <ion-note slot="end">Band ${esc(c.band)}${c.mhz ? `（${esc(c.mhz)} MHz）` : ""}</ion-note></ion-item>`);
+    if (c.rsrp != null) rows.push(meterItem("cellular-outline", "信号强度 RSRP", (c.rsrp + 125) / 50, c.rsrp + " dBm", c.rsrp_level,
+      `RSSI ${c.rssi} dBm · RSRQ ${c.rsrq} dB（RSRP 高于 -90 很好，低于 -110 偏弱）`));
+    if (c.sinr != null) rows.push(meterItem("analytics-outline", "信噪比 SINR", (c.sinr + 10) / 40, c.sinr + " dB", c.sinr_level,
+      "高于 13 很好，0 ~ 13 一般，低于 0 通话容易断续"));
+    rows.push(`<ion-item><ion-icon slot="start" name="git-network-outline" color="medium"></ion-icon>
+      <ion-label>小区 ${esc(c.id)}<p>PCI ${esc(c.pci)} · TAC ${esc(c.tac)} · EARFCN ${esc(c.earfcn)}${c.bw ? ` · 带宽 ${c.bw} MHz` : ""}</p></ion-label>
+      <ion-note slot="end">${esc(c.state)}</ion-note></ion-item>`);
+  }
+  if (mx.volte != null) rows.push(`<ion-item><ion-icon slot="start" name="call-outline" color="${mx.volte ? "success" : "danger"}"></ion-icon>
+      <ion-label>VoLTE<p>日本没有 2G/3G，打电话全靠它</p></ion-label>
+      <ion-badge slot="end" color="${mx.volte ? "success" : "danger"}">${mx.volte ? "可用" : "不可用"}</ion-badge></ion-item>`);
+  if (!rows.length && !mx.stale) return "";
+  return `<ion-list-header><ion-label>4G 模块</ion-label></ion-list-header>
+    <ion-list inset>${rows.join("")}${mx.stale ? `<ion-item><ion-icon slot="start" name="alert-circle" color="warning"></ion-icon>
+      <ion-label class="ion-text-wrap" color="medium">模块详情 ${Math.round(mx.age / 60)} 分钟没更新了，上面是旧数据</ion-label></ion-item>` : ""}</ion-list>`;
+}
+async function status() {
+  setTitle("状态");
+  const gen = statusGen, here = () => current.view === "status" && gen === statusGen;
+  if (!$("#st")) $("#main").innerHTML = `<div id="st"><div class="empty"><ion-spinner></ion-spinner></div></div>`;
+  let h;
+  try { h = await api("/api/health"); }
+  catch (e) { if (here()) $("#st").innerHTML = empty("cloud-offline-outline", "读取状态失败：" + esc(e.message)); }
+  if (h && here()) render(h);
+  if (here()) statusTimer = setTimeout(function tick() { document.hidden ? statusTimer = setTimeout(tick, 5000) : status(); }, 5000);
+
+  function render(h) {
+    const md = h.modem, mx = md.detail, cell = mx && !mx.stale && mx.cell;
+    const checks = [...h.services.map(s => [s.label, s.level, s.value]), ["信号", md.level, md.dbm != null ? md.dbm + " dBm" : "无信号"],
+      ...(cell ? [["RSRP", cell.rsrp_level, cell.rsrp + " dBm"], ["SINR", cell.sinr_level, cell.sinr + " dB"]] : []),
+      ["CPU", h.cpu.level, h.cpu.pct + "%"], ["负载", h.load.level, String(h.load["1"])], ["内存", h.mem.level, h.mem.pct + "%"],
+      ["系统盘", h.disk.level, h.disk.pct + "%"], ...h.temps.map(t => [t.label + "温度", t.level, t.c + "°C"])];
+    const issues = checks.filter(c => c[1] !== "ok");
+    const worst = issues.some(c => c[1] === "bad") ? "bad" : issues.length ? "warn" : "ok";
+    $("#st").innerHTML = `
+    <ion-card><div class="hero"><ion-icon name="${{ok: "checkmark-circle", warn: "alert-circle", bad: "close-circle"}[worst]}" color="${COLOR[worst]}"></ion-icon>
+      <div><h2>${worst === "ok" ? "一切正常" : `有 ${issues.length} 项需要注意`}</h2>
+      <p>${issues.length ? issues.map(c => `${esc(c[0])}：${esc(c[2])}`).join("　") : `已连续运行 ${upText(h.uptime)}`}</p></div></div></ion-card>
+    <ion-list-header><ion-label>服务</ion-label></ion-list-header>
+    <ion-list inset>
+      ${h.services.map(s => `<ion-item><ion-icon slot="start" name="${SVC_ICON[s.id] || "ellipse-outline"}" color="${COLOR[s.level]}"></ion-icon>
+        <ion-label>${esc(s.label)}</ion-label><ion-badge slot="end" color="${COLOR[s.level]}">${esc(s.value)}</ion-badge></ion-item>`).join("")}
+      <ion-item><ion-icon slot="start" name="cellular-outline" color="${COLOR[md.level]}"></ion-icon><ion-label>信号<p>${esc(md.operator || "-")}</p></ion-label>
+        <div slot="end" style="display:flex;align-items:center;gap:8px"><div class="sig ${COLOR[md.level]}">${[1, 2, 3, 4].map(i => `<i class="${i <= md.bars ? "on" : ""}" style="height:${i * 25}%"></i>`).join("")}</div>
+        <ion-note>${md.dbm != null ? md.dbm + " dBm" : "无信号"}</ion-note></div></ion-item>
+    </ion-list>
+    ${moduleList(mx)}
+    <ion-list-header><ion-label>NAS</ion-label></ion-list-header>
+    <ion-list inset>
+      ${meterItem("speedometer-outline", "CPU 使用率", h.cpu.pct / 100, h.cpu.pct + "%", h.cpu.level, `${h.cpu.cores} 线程`)}
+      ${meterItem("pulse-outline", "负载", h.load.pct / 100, h.load["1"].toFixed(2), h.load.level, `1 / 5 / 15 分钟：${h.load["1"]} / ${h.load["5"]} / ${h.load["15"]}（满载 = ${h.cpu.cores}）`)}
+      ${meterItem("layers-outline", "内存", h.mem.pct / 100, h.mem.pct + "%", h.mem.level, `已用 ${gb(h.mem.used * 1024)} / ${gb(h.mem.total * 1024)}`)}
+      ${meterItem("save-outline", "系统盘", h.disk.pct / 100, h.disk.pct + "%", h.disk.level, `已用 ${gb(h.disk.used)} / ${gb(h.disk.total)}`)}
+    </ion-list>
+    <ion-list-header><ion-label>温度</ion-label></ion-list-header>
+    <ion-list inset>${h.temps.map(t => meterItem("thermometer-outline", esc(t.label), (t.c - 20) / 80, t.c + " °C", t.level,
+      t.parts ? `电源管理 / 晶振 / 功放：${t.parts.join(" / ")} °C` : "")).join("")
+      || '<ion-item><ion-label color="medium">读不到温度传感器</ion-label></ion-item>'}</ion-list>
+    <ion-list-header><ion-label>最近 24 小时</ion-label></ion-list-header>
+    <ion-card><div class="stats">
+      <div><ion-icon name="chatbubble-outline" color="primary"></ion-icon><b>${h.day.sms}</b><span>短信</span></div>
+      <div><ion-icon name="shield-checkmark-outline" color="warning"></ion-icon><b>${h.day.sms_blocked}</b><span>拦截短信</span></div>
+      <div><ion-icon name="call-outline" color="success"></ion-icon><b>${h.day.calls}</b><span>来电</span></div>
+      <div><ion-icon name="ban-outline" color="medium"></ion-icon><b>${h.day.calls_blocked}</b><span>拦截来电</span></div></div></ion-card>
+    <p class="hint" style="text-align:center">每 5 秒自动刷新 · ${new Date(h.time).toLocaleTimeString("zh-CN")}</p>`;
+  }
+}
+
+// -------------------------------------------------------------- settings --
+const toggleItem = (id, title, sub, on) => `<ion-item><ion-label class="ion-text-wrap"><h3>${title}</h3><p>${sub}</p></ion-label>
+  <ion-toggle slot="end" id="${id}" aria-label="${title}"${on ? " checked" : ""}></ion-toggle></ion-item>`;
+const areaItem = (id, label, value, placeholder) => `<ion-item><ion-textarea id="${id}" label="${label}" label-placement="stacked" auto-grow="true" rows="2"
+  placeholder="${placeholder}" value="${esc(value)}"></ion-textarea></ion-item>`;
+const CM_HINT = {
+  smart: "被百度号码标记为骚扰、诈骗、推销、中介、贷款等的号码直接拒接，其它照常响铃。陌生号码第一次打来会先查一下标记（1~2 秒），查不到也会响铃。",
+  all: "除了白名单，所有来电都直接拒接、不响铃，只留记录。",
+  list: "只拒接黑名单里的号码，其它来电都响铃。"};
+const devIcon = n => /ipad/i.test(n) ? "tablet-portrait-outline" : /mac|电脑|laptop/i.test(n) ? "laptop-outline" : "phone-portrait-outline";
+function sheet(header, buttons) {  // ion-action-sheet -> data of the chosen button, after it has closed
+  return new Promise(res => {
+    const a = Object.assign(document.createElement("ion-action-sheet"), {header, buttons: [...buttons, {text: "取消", role: "cancel"}]});
+    document.body.appendChild(a);
+    a.addEventListener("didDismiss", e => { a.remove(); res(e.detail.data); });
+    a.present();
+  });
+}
+async function settings() {
+  setTitle("设置");
+  const [s, pks] = await Promise.all([api("/api/settings"), api("/api/passkeys")]);
+  const devLines = s.bark_devices ? s.bark_devices.split("\n") : [];
+  const kws = (s.block_keywords || "").split("\n").map(x => x.trim()).filter(Boolean);
+  const ruleLines = key => (s[key] || "").split("\n").filter(l => l.trim());
+  const ruleList = (key, title, hint) => { const ls = ruleLines(key), allow = key === "allow_rules";
+    return `<ion-list-header><ion-label>${title}</ion-label><ion-note style="margin-right:20px">${ls.length} 个</ion-note></ion-list-header>
+    <ion-list inset>${ls.map((line, i) => { const r = s.rule_info[line] || {kind: "number", display: line, sub: ""};
+      return `<ion-item ${r.kind === "number" ? `button detail="false" data-num="${esc(line.split("#")[0].trim())}"` : ""}>
+        <ion-icon slot="start" name="${r.kind === "prefix" ? "git-branch-outline" : r.kind === "kw" ? "text-outline" : allow ? "checkmark-circle" : "ban"}" color="${allow ? "success" : "danger"}"></ion-icon>
+        <ion-label>${esc(r.display)}<p>${esc([r.sub, r.note].filter(Boolean).join(" · "))}</p></ion-label>
+        <ion-button slot="end" fill="clear" color="medium" data-rk="${key}" data-ri="${i}" aria-label="移除"><ion-icon slot="icon-only" name="trash-outline"></ion-icon></ion-button></ion-item>`; }).join("")}
+      <ion-item button detail="false" data-radd="${key}"><ion-icon slot="start" name="add-circle" color="primary"></ion-icon><ion-label color="primary">添加号码</ion-label></ion-item></ion-list>
+    <p class="hint">${hint}</p>`; };
+  $("#main").innerHTML = `
+  <ion-list-header><ion-label>Bark 推送设备</ion-label></ion-list-header>
+  <ion-list inset>
+    ${s.bark_list.map((d, i) => `<ion-item button detail="false" data-dev="${i}"><ion-icon slot="start" name="${devIcon(d.name)}" color="primary"></ion-icon>
+      <ion-label>${esc(d.name || "未命名设备")}<p>${d.local ? "本机 Bark 服务器" : esc(d.host)} · 密钥 ${esc(d.key)}</p></ion-label>
+      <ion-icon slot="end" name="ellipsis-horizontal" color="medium"></ion-icon></ion-item>`).join("")}
+    <ion-item button detail="false" id="devadd"><ion-icon slot="start" name="add-circle" color="primary"></ion-icon><ion-label color="primary">添加设备</ion-label></ion-item>
+  </ion-list>
+  <p class="hint">短信、拦截记录、告警会同时推给这里的每一台设备。点设备可以单独发测试、改名或删除。</p>
+  <div class="btnrow"><ion-button fill="outline" id="test"><ion-icon slot="start" name="paper-plane-outline"></ion-icon>给所有设备发测试推送</ion-button></div>
+
+  <ion-list-header><ion-label>提醒</ion-label></ion-list-header>
+  <ion-list inset>
+    ${toggleItem("al", "故障告警", "模块掉网、VoLTE 不可用、服务挂了、备份失败时发一条带声音的提醒，恢复了再告诉你", s.alerts)}
+    ${toggleItem("ds", "每日小结", "每天早上 9 点推一条：过去一天收了多少短信和电话、网关是否正常", s.daily_summary)}
+  </ion-list>
+
+  <ion-list-header><ion-label>来电拦截</ion-label></ion-list-header>
+  <ion-list inset>
+    <ion-item><ion-icon slot="start" name="shield-half-outline" color="primary"></ion-icon>
+      <ion-select id="cm" label="拦截方式" interface="action-sheet" cancel-text="取消" value="${s.call_mode}">
+      <ion-select-option value="smart">智能拦截</ion-select-option><ion-select-option value="all">全部拦截</ion-select-option>
+      <ion-select-option value="list">只拦黑名单</ion-select-option></ion-select></ion-item>
+    ${toggleItem("ba", "拒接隐藏号码", "没有来电号码的电话直接拒接", s.block_anonymous)}
+    ${toggleItem("om", "联网查询号码标记", "陌生号码来电、来短信时去百度搜一次它的标记。关掉后号码不会发给任何人，智能拦截只用已经查过的结果", s.online_marks)}
+  </ion-list>
+  <p class="hint" id="cmhint">${CM_HINT[s.call_mode]}</p>
+
+  <ion-list-header><ion-label>短信拦截</ion-label></ion-list-header>
+  <ion-list inset>
+    ${toggleItem("bm", "自动拦截营销短信", "带“退订/拒收回复R”的推销内容；验证码、银行、运营商、快递通知不拦", s.block_marketing)}
+    <ion-item lines="full"><div class="kwchips">${kws.length ? kws.map((k, i) => `<ion-chip data-kw="${i}" outline><ion-label>${esc(k)}</ion-label><ion-icon name="close-circle"></ion-icon></ion-chip>`).join("")
+      : '<ion-note>还没有屏蔽关键词</ion-note>'}</div></ion-item>
+    <ion-item><ion-input id="kwin" aria-label="新关键词" placeholder="添加屏蔽关键词" enterkeyhint="done"></ion-input>
+      <ion-button slot="end" fill="clear" id="kwadd">添加</ion-button></ion-item>
+  </ion-list>
+  <p class="hint">短信里出现这些词就拦截，只发一条静默通知。<b>验证码短信也会被拦</b>，别加太宽泛的词。点关键词就能删掉，一次可以用空格隔开添加多个。</p>
+
+  ${ruleList("block_rules", "黑名单", "黑名单里的号码：短信拦截，来电拒接。")}
+  ${ruleList("allow_rules", "白名单", "白名单里的号码永远放行：短信不拦，电话照常响铃（“全部拦截”模式下也会响）。")}
+
+  <ion-list-header><ion-label>高级</ion-label></ion-list-header>
+  <ion-list inset>
+    <ion-item><ion-input id="ek" label="推送加密密钥（可不填）" label-placement="stacked" value="${esc(s.bark_enc_key)}" placeholder="AES-256，32 位"></ion-input>
+      <ion-button slot="end" fill="clear" id="gen">生成</ion-button></ion-item>
+    <ion-item><ion-input id="pub" label="本页面的公网地址" label-placement="stacked" value="${esc(s.public_base_url)}" placeholder="https://sms.example.com"></ion-input></ion-item>
+  </ion-list>
+  <p class="hint">填了加密密钥的话，每台设备都要在 Bark App「推送加密」里选 AES256 / CBC 并填同一个密钥。</p>
+  <div class="btnrow"><ion-button id="save"><ion-icon slot="start" name="checkmark"></ion-icon>保存</ion-button></div>
+
+  <ion-list-header><ion-label>Linphone 来电推送</ion-label></ion-list-header>
+  <ion-list inset>
+    <ion-item><ion-input id="lu" label="linphone.org 用户名" label-placement="stacked" value="${esc(s.linphone_user)}" autocomplete="off" autocapitalize="none"></ion-input></ion-item>
+    <ion-item><ion-input id="lp" type="password" label="密码" label-placement="stacked" placeholder="${s.linphone_password_set ? "已设置，留空不改" : "未设置"}" autocomplete="off"></ion-input></ion-item>
+    <ion-item><ion-icon slot="start" name="${s.linphone_key_ok ? "checkmark-circle" : "alert-circle"}" color="${s.linphone_key_ok ? "success" : "warning"}"></ion-icon>
+      <ion-label>${s.linphone_key_ok ? "推送密钥正常" : "推送密钥未生成"}</ion-label></ion-item>
+  </ion-list>
+  <p class="hint">锁屏来电靠 linphone.org 的推送服务。填用户名（不是邮箱）和密码，NAS 会自动申请并续期推送密钥。</p>
+  <div class="btnrow"><ion-button id="lsave"><ion-icon slot="start" name="key-outline"></ion-icon>保存并测试</ion-button></div>
+
+  <ion-list-header><ion-label>iPhone SIP 账号</ion-label></ion-list-header>
+  <ion-list inset>
+    <ion-item><ion-icon slot="start" name="person-circle-outline" color="primary"></ion-icon><ion-label>用户名</ion-label><ion-note slot="end">${esc(s.sip_username)}</ion-note></ion-item>
+    <ion-item><ion-icon slot="start" name="key-outline" color="primary"></ion-icon><ion-input type="password" label="密码" readonly value="${esc(s.sip_password)}"><ion-input-password-toggle slot="end"></ion-input-password-toggle></ion-input></ion-item>
+  </ion-list>
+
+  <ion-list-header><ion-label>通行密钥</ion-label></ion-list-header>
+  <ion-list inset id="pklist">
+    ${pks.map(k => `<ion-item><ion-icon slot="start" name="finger-print" color="primary"></ion-icon>
+      <ion-label>${esc(k.name)}<p>添加于 ${fmt(k.created)}${k.last_used ? " · 上次使用 " + fmt(k.last_used) : ""}</p></ion-label>
+      <ion-button slot="end" fill="clear" color="danger" data-pk="${esc(k.id)}" aria-label="删除"><ion-icon slot="icon-only" name="trash-outline"></ion-icon></ion-button></ion-item>`).join("")}
+    ${passkeyUsable() ? `<ion-item button detail="false" id="pkadd"><ion-icon slot="start" name="add-circle" color="primary"></ion-icon><ion-label color="primary">添加通行密钥</ion-label></ion-item>`
+      : `<ion-item><ion-label class="ion-text-wrap"><p>通行密钥只能在 https://${esc(appState.passkey_rp)} 上添加和使用。</p></ion-label></ion-item>`}
+  </ion-list>
+  <p class="hint">添加后，登录页点“使用通行密钥登录”，用面容 ID 就能进来，不用输密码。通行密钥存在你的 iCloud 钥匙串里，同一个 Apple 账号的 iPhone、iPad、Mac 都能用。</p>
+
+  <ion-list-header><ion-label>安全</ion-label></ion-list-header>
+  <ion-list inset>
+    <ion-item button detail="false" id="chg"><ion-icon slot="start" name="lock-closed-outline" color="primary"></ion-icon><ion-label>修改登录密码</ion-label></ion-item>
+    <ion-item button detail="false" id="all"><ion-icon slot="start" name="phone-portrait-outline" color="warning"></ion-icon><ion-label>退出所有设备</ion-label></ion-item>
+    <ion-item button detail="false" id="out"><ion-icon slot="start" name="log-out-outline" color="danger"></ion-icon><ion-label color="danger">退出登录</ion-label></ion-item>
+  </ion-list>`;
+  $("#gen").onclick = () => { const a = new Uint8Array(24); crypto.getRandomValues(a); $("#ek").value = btoa(String.fromCharCode(...a)).replace(/[+/=]/g, "x").slice(0, 32); };
+  const saveSet = async (body, msg = "已保存") => {
+    try { await api("/api/settings", {method: "POST", body: JSON.stringify(body)}); if (msg) toast(msg, "success"); return true; }
+    catch (e) { toast(e.message, "danger"); return false; } };
+  $("#save").onclick = () => saveSet({bark_enc_key: $("#ek").value || "", public_base_url: $("#pub").value || ""});
+  $("#test").onclick = async () => { try { await api("/api/test-push", {method: "POST"}); toast("已发出，看看各台设备", "success"); } catch (e) { toast(e.message, "danger"); } };
+  // Bark devices
+  $("#main").querySelectorAll("[data-dev]").forEach(el => el.onclick = async () => {
+    const i = +el.dataset.dev, d = s.bark_list[i];
+    const act = await sheet(d.name || "未命名设备", [{text: "发测试推送", icon: "paper-plane-outline", data: "test"},
+      {text: "改名", icon: "create-outline", data: "rename"}, {text: "删除这台设备", icon: "trash-outline", role: "destructive", data: "del"}]);
+    if (act === "test") {
+      try { await api("/api/test-push", {method: "POST", body: JSON.stringify({index: i})}); toast(`已发给 ${d.name || "这台设备"}`, "success"); }
+      catch (e) { toast(e.message, "danger"); }
+    } else if (act === "rename") {
+      const v = await prompt2("改名", "", [{name: "name", value: d.name, placeholder: "如 iPad"}], "保存");
+      if (!v) return;
+      const ls = [...devLines]; ls[i] = `${v.name.trim()} ${ls[i].split(/\s+/).pop()}`.trim();
+      if (await saveSet({bark_devices: ls.join("\n")}, "已改名")) settings();
+    } else if (act === "del") {
+      if (!await ask(`删除 ${d.name || "这台设备"}？`, "删除后这台设备不再收到推送。", "删除")) return;
+      if (await saveSet({bark_devices: devLines.filter((_, j) => j !== i).join("\n")}, "已删除")) settings();
+    }
+  });
+  $("#devadd").onclick = async () => {
+    const v = await prompt2("添加推送设备", `在这台设备的 Bark App 里添加服务器 https://${location.host}/bark，然后把它的测试链接复制到下面。`,
+      [{name: "name", placeholder: "备注，如 iPad"}, {name: "url", placeholder: "粘贴测试链接"}], "添加");
+    if (!v || !v.url.trim()) return;
+    if (await saveSet({bark_devices: [...devLines, `${v.name.trim()} ${v.url.trim()}`.trim()].join("\n")}, "已添加")) settings();
+  };
+  // switches save as soon as they change
+  $("#cm").addEventListener("ionChange", e => { $("#cmhint").textContent = CM_HINT[e.detail.value]; saveSet({call_mode: e.detail.value}); });
+  for (const [id, key] of [["ba", "block_anonymous"], ["bm", "block_marketing"], ["al", "alerts"], ["ds", "daily_summary"], ["om", "online_marks"]])
+    $("#" + id).addEventListener("ionChange", e => saveSet({[key]: e.detail.checked}));
+  // keywords
+  $("#main").querySelectorAll("[data-kw]").forEach(c => c.onclick = async () => {
+    const i = +c.dataset.kw;
+    if (await saveSet({block_keywords: kws.filter((_, j) => j !== i).join("\n")}, `已删除「${kws[i]}」`)) settings(); });
+  const addKw = async () => {
+    const add = ($("#kwin").value || "").split(/[\s,，、]+/).filter(k => k && !kws.includes(k));
+    if (!add.length) return;
+    if (await saveSet({block_keywords: [...kws, ...add].join("\n")}, `已添加「${add.join("」「")}」`)) settings(); };
+  $("#kwadd").onclick = addKw;
+  $("#kwin").addEventListener("keydown", e => { if (e.key === "Enter") addKw(); });
+  // block / allow lists
+  $("#main").querySelectorAll("[data-num]").forEach(el => el.onclick = () => route("contact", el.dataset.num));
+  $("#main").querySelectorAll("[data-rk]").forEach(b => b.onclick = async ev => {
+    ev.stopPropagation();
+    const key = b.dataset.rk, i = +b.dataset.ri, ls = ruleLines(key), r = s.rule_info[ls[i]] || {display: ls[i]};
+    if (!await ask(`从${key === "allow_rules" ? "白" : "黑"}名单移除？`, r.display, "移除")) return;
+    if (await saveSet({[key]: ls.filter((_, j) => j !== i).join("\n")}, "已移除")) settings(); });
+  $("#main").querySelectorAll("[data-radd]").forEach(el => el.onclick = async () => {
+    const key = el.dataset.radd, ls = ruleLines(key);
+    const v = await prompt2(key === "allow_rules" ? "添加到白名单" : "添加到黑名单", "填完整号码；要拦一整个号段就在前缀后面加 *，比如 170*",
+      [{name: "n", type: "tel", placeholder: "号码，或前缀*"}], "添加");
+    const n = (v?.n || "").replace(/[\s()-]/g, "");
+    if (!n) return;
+    if (!/^\+?\d{3,}\*?$/.test(n)) return toast("号码格式不对", "danger");
+    if (ls.some(l => l.split("#")[0].trim() === n)) return toast("已经在名单里了");
+    if (await saveSet({[key]: [...ls, n].join("\n")}, "已添加")) settings(); });
+  $("#lsave").onclick = async () => { const b = {linphone_user: $("#lu").value || ""}; if ($("#lp").value) b.linphone_password = $("#lp").value;
+    try { await api("/api/settings", {method: "POST", body: JSON.stringify(b)}); await api("/api/test-linphone", {method: "POST"}); toast("账号可用，推送密钥已生成", "success"); settings(); }
+    catch (e) { toast(e.message, "danger"); } };
+  $("#chg").onclick = async () => {
+    const v = await prompt2("修改登录密码", "新密码至少 10 位。", [{name: "cur", type: "password", placeholder: "当前密码"},
+      {name: "n1", type: "password", placeholder: "新密码"}, {name: "n2", type: "password", placeholder: "再输一次新密码"}], "修改");
+    if (!v) return;
+    if (v.n1 !== v.n2) return toast("两次输入的新密码不一致", "danger");
+    try { await api("/api/settings", {method: "POST", body: JSON.stringify({current_password: v.cur, new_password: v.n1})}); toast("登录密码已修改", "success"); }
+    catch (e) { toast(e.message, "danger"); } };
+  if ($("#pkadd")) $("#pkadd").onclick = addPasskey;
+  $("#main").querySelectorAll("ion-button[data-pk]").forEach(b => b.onclick = async () => {
+    if (!await ask("删除这个通行密钥？", "删除后它就不能再登录了（设备上的钥匙串条目可以在 iPhone“密码”App 里删）。", "删除")) return;
+    try { await api("/api/passkey/delete", {method: "POST", body: JSON.stringify({id: b.dataset.pk})}); settings(); } catch (e) { toast(e.message, "danger"); } });
+  $("#all").onclick = async () => { if (!await ask("退出所有设备？", "所有已登录的手机和电脑都需要重新登录。", "全部退出")) return; await api("/api/logout-all", {method: "POST"}); route("login"); };
+  $("#out").onclick = async () => { await api("/api/logout", {method: "POST"}); route("login"); };
+}
+function copyText(t) {
+  if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(t);
+  const a = document.createElement("textarea"); a.value = t; a.style.position = "fixed"; a.style.opacity = "0";
+  document.body.appendChild(a); a.select(); document.execCommand("copy"); a.remove(); return Promise.resolve();
+}
+async function start() {
+  await customElements.whenDefined("ion-app");
+  const s = appState = await (await fetch("/api/state")).json();
+  if (s.setup_needed) return route("setup", s.setup_allowed);
+  if (!s.logged_in) return route("login");
+  const m = location.hash.match(/^#n=(.+)$/);
+  if (location.hash === "#v=spam") { location.hash = ""; return route("spam"); }
+  m ? route("thread", decodeURIComponent(m[1])) : route("threads");
+}
+start();
+</script>
+</body>
+</html>

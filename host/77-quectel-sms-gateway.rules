@@ -1,0 +1,9 @@
+# Quectel EC20F (USB 2c7c:0125) carrying the China Unicom SIM is driven by
+# Asterisk/chan_quectel for /opt/sms-gateway, so keep ModemManager off it
+# (and with it any chance of a mobile-data bearer while roaming).
+ATTRS{idVendor}=="2c7c", ATTRS{idProduct}=="0125", ENV{ID_MM_DEVICE_IGNORE}="1"
+# Stable names so a replug does not reshuffle ttyUSBn / ALSA card numbers.
+SUBSYSTEM=="tty", ATTRS{idVendor}=="2c7c", ATTRS{idProduct}=="0125", ENV{ID_USB_INTERFACE_NUM}=="02", SYMLINK+="quectel-at"
+SUBSYSTEM=="sound", KERNEL=="card*", ATTRS{idVendor}=="2c7c", ATTRS{idProduct}=="0125", ATTR{id}="Quectel"
+# Spare AT port (interface 03): read-only status polling (asterisk/modemstat.sh).
+SUBSYSTEM=="tty", ATTRS{idVendor}=="2c7c", ATTRS{idProduct}=="0125", ENV{ID_USB_INTERFACE_NUM}=="03", SYMLINK+="quectel-status"

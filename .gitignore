@@ -1,0 +1,8 @@
+# Secrets and site settings
+.env
+# Runtime state: SMS database, Caddy certificates, Bark devices, Asterisk DB
+data/
+# Local backups made while editing on the server
+*.bak*
+__pycache__/
+*.pyc
